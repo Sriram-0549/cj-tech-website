@@ -1,0 +1,67 @@
+[
+  {
+    "name": "Test Client",
+    "company": "Apex Labs",
+    "email": "test@example.com",
+    "phone": "+91 98765 43210",
+    "service": "Web Application",
+    "budget": "₹50k–₹1L",
+    "message": "Building a custom telemetry and client portal application.",
+    "status": "new",
+    "created_at": "2026-09-19T10:34:12.333Z",
+    "id": "inq_1789814053334_3d93fm",
+    "synced_to_supabase": false
+  },
+  {
+    "name": "Test Name",
+    "company": "",
+    "email": "test@example.com",
+    "phone": "",
+    "service": "Web Development",
+    "budget": "Not sure yet",
+    "message": "Hello testing inquiry",
+    "status": "new",
+    "created_at": "2026-09-20T09:09:36.035Z",
+    "id": "inq_1789895376290_6n30ky",
+    "synced_to_supabase": false
+  },
+  {
+    "name": "Sriram Tech",
+    "company": "CJ Innovations",
+    "email": "sriramcj2426@gmail.com",
+    "phone": "+91 9876543210",
+    "service": "Web Application",
+    "budget": "₹50,000 – ₹1,00,000",
+    "message": "We need an end-to-end web app engineered for our business workflow.",
+    "status": "new",
+    "created_at": "2026-09-20T09:20:39.804Z",
+    "id": "inq_1789896040934_brfc1k",
+    "synced_to_supabase": false
+  },
+  {
+    "name": "Sri Ram",
+    "company": "",
+    "email": "sriramcj2426@gmail.com",
+    "phone": "9361628990",
+    "service": "Web Application",
+    "budget": "Under ₹25,000",
+    "message": "i want you to build a web application for my comapnay.",
+    "status": "new",
+    "created_at": "2026-09-20T13:20:47.569Z",
+    "id": "inq_1789910448517_2w33gt",
+    "synced_to_supabase": true
+  },
+  {
+    "name": "varun",
+    "company": "",
+    "email": "varunkumarshridhar555@gmail.com",
+    "phone": "",
+    "service": "Website Development",
+    "budget": "Not sure yet",
+    "message": "i need website development for my organization",
+    "status": "new",
+    "created_at": "2026-09-20T13:40:42.185Z",
+    "id": "inq_1789911643203_paoq70",
+    "synced_to_supabase": true
+  }
+]

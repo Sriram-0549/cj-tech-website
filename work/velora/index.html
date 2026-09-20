@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VELORA — Fashion & Lifestyle E-Commerce | CJ Tech</title>
+  <meta name="description" content="Explore how CJ Tech designed and engineered VELORA, a full-stack fashion and lifestyle e-commerce platform with Next.js, Supabase, PostgreSQL, and Tailwind CSS." />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../../cj-tech-monogram.png" />
+
+  <!-- Open Graph & Social Cards -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="VELORA — Fashion & Lifestyle E-Commerce | CJ Tech" />
+  <meta property="og:description" content="Explore how CJ Tech designed and engineered VELORA, a full-stack fashion and lifestyle e-commerce platform with Next.js, Supabase, PostgreSQL, and Tailwind CSS." />
+  <meta property="og:image" content="/images/velora-case-study/velora-mockup-showcase.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="VELORA — Fashion & Lifestyle E-Commerce | CJ Tech" />
+  <meta name="twitter:description" content="Explore how CJ Tech designed and engineered VELORA, a full-stack fashion and lifestyle e-commerce platform with Next.js, Supabase, PostgreSQL, and Tailwind CSS." />
+
+  <!-- Google Fonts: Manrope (Display & Body), JetBrains Mono (Technical) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+<body class="velora-case-body">
+
+  <!-- Desktop Custom Cursor -->
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-outline" id="cursor-outline" aria-hidden="true"></div>
+
+  <!-- ==================== HEADER / NAVBAR ==================== -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <!-- CJ Tech Brand Lockup -->
+      <a href="/" class="brand-lockup" aria-label="CJ TECH Home">
+        <img src="../../cj-tech-monogram.png" alt="CJ TECH Monogram" class="brand-monogram-img" width="38" height="33" />
+        <div class="brand-typography">
+          <div class="brand-wordmark">
+            <span class="wordmark-cj">CJ</span>
+            <span class="wordmark-tech">TECH</span>
+          </div>
+          <span class="brand-descriptor">SOFTWARE • WEB • AUTOMATION</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li><a href="/#work" class="nav-link active">Work</a></li>
+          <li><a href="/#services" class="nav-link">Services</a></li>
+          <li><a href="/#process" class="nav-link">Process</a></li>
+          <li><a href="/#about" class="nav-link">About</a></li>
+          <li><a href="/contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right Action -->
+      <div class="nav-actions">
+        <a href="/contact" class="btn btn-sm btn-electric">Start a Project →</a>
+        <button class="hamburger" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer & Overlay -->
+  <div class="mobile-nav-overlay" id="drawer-overlay" aria-hidden="true"></div>
+  <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation" aria-hidden="true">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <a href="/" class="brand-lockup" style="width: 145px;">
+        <img src="../../cj-tech-monogram.png" alt="CJ TECH Monogram" class="brand-monogram-img" width="32" height="28" />
+        <div class="brand-typography">
+          <div class="brand-wordmark">
+            <span class="wordmark-cj">CJ</span>
+            <span class="wordmark-tech">TECH</span>
+          </div>
+          <span class="brand-descriptor">SOFTWARE • WEB • AUTOMATION</span>
+        </div>
+      </a>
+      <button class="mobile-drawer-close" id="drawer-close" aria-label="Close navigation menu">✕</button>
+    </div>
+    <ul class="mobile-menu-links">
+      <li><a href="/#work" class="mobile-nav-link active">Work</a></li>
+      <li><a href="/#services" class="mobile-nav-link">Services</a></li>
+      <li><a href="/#process" class="mobile-nav-link">Process</a></li>
+      <li><a href="/#about" class="mobile-nav-link">About</a></li>
+      <li><a href="/contact" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <div style="margin-top: auto; padding-top: 2rem;">
+      <a href="/contact" class="btn btn-electric mobile-nav-link" style="width: 100%; text-align: center;">Start a Project →</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- ==================== 1. CASE STUDY HERO (LARGE REAL PRODUCT SHOWCASE) ==================== -->
+    <section class="cs-hero-section">
+      <div class="cs-hero-container">
+        <div class="cs-hero-grid">
+          
+          <!-- LEFT: Real Product Showcase (Large Hero Artwork, 67-70% width, 85-90% visual height) -->
+          <div class="cs-hero-visual-col">
+            <div class="cs-hero-visual-stage">
+              <!-- Blue -> Violet Ambient Backlight Glow -->
+              <div class="cs-hero-ambient-glow" aria-hidden="true"></div>
+
+              <!-- Real VELORA Website Artwork (Direct, unboxed, authentic product presentation) -->
+              <div class="cs-hero-artwork-frame">
+                <img 
+                  src="/images/velora-case-study/homepage.png" 
+                  alt="VELORA — Production Storefront Showcase" 
+                  width="1901"
+                  height="897"
+                  loading="eager"
+                  class="cs-hero-screenshot-img"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: Project Information (Clean, Vertically Aligned Opposite Screenshot) -->
+          <div class="cs-hero-info-col">
+            <div class="cs-meta-badge">
+              <span class="cs-badge-dot"></span>
+              <span class="cs-badge-text">01 / SELECTED WORK</span>
+            </div>
+
+            <h1 class="cs-hero-title">VELORA</h1>
+            <p class="cs-hero-subtitle">Fashion &amp; Lifestyle E-Commerce</p>
+
+            <p class="cs-hero-summary">
+              A modern e-commerce experience designed and developed by CJ Tech, combining a polished storefront with product discovery, cart, checkout and order workflows.
+            </p>
+
+            <!-- Technology Stack -->
+            <div class="cs-hero-tech-block">
+              <span class="cs-hero-tech-label">Technology</span>
+              <div class="cs-hero-tech-tags">
+                <span>Next.js</span>
+                <span>React</span>
+                <span>TypeScript</span>
+                <span>Tailwind CSS</span>
+                <span>Supabase</span>
+                <span>PostgreSQL</span>
+                <span>API Routes</span>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="cs-hero-actions">
+              <a href="https://velora-ecommerce-flame.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-hero-live" id="hero-view-live-btn">
+                <span>VIEW LIVE WEBSITE</span>
+                <span class="btn-arrow">→</span>
+              </a>
+              <a href="https://github.com/Sriram-0549/velora-ecommerce" target="_blank" rel="noopener noreferrer" class="btn btn-hero-source" id="hero-view-source-btn">
+                <span>VIEW SOURCE</span>
+                <span class="btn-arrow">→</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 2. PROJECT INFORMATION MATRIX (TECHNICAL STRIP) ==================== -->
+    <section class="cs-info-strip">
+      <div class="container">
+        <div class="cs-info-grid">
+          <div class="cs-info-col">
+            <span class="cs-info-label">PROJECT</span>
+            <span class="cs-info-value">VELORA</span>
+          </div>
+          <div class="cs-info-col">
+            <span class="cs-info-label">CATEGORY</span>
+            <span class="cs-info-value">E-Commerce</span>
+          </div>
+          <div class="cs-info-col">
+            <span class="cs-info-label">TYPE</span>
+            <span class="cs-info-value">Full-Stack Web App</span>
+          </div>
+          <div class="cs-info-col">
+            <span class="cs-info-label">STATUS</span>
+            <span class="cs-info-value cs-status-highlight">Completed</span>
+          </div>
+          <div class="cs-info-col cs-info-tech-col">
+            <span class="cs-info-label">TECHNOLOGY</span>
+            <div class="cs-tech-inline-tags">
+              <span>Next.js</span>
+              <span>React</span>
+              <span>TypeScript</span>
+              <span>Tailwind CSS</span>
+              <span>Supabase</span>
+              <span>PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 3. SECTION 01: THE PROJECT (LIGHT EDITORIAL) ==================== -->
+    <section class="cs-section cs-theme-light" id="overview">
+      <div class="container cs-narrative-container">
+        <div class="cs-section-indicator">
+          <span class="cs-sec-num">01</span>
+          <span class="cs-sec-bar"></span>
+          <span class="cs-sec-tag">THE PROJECT</span>
+        </div>
+
+        <h2 class="cs-section-heading light-heading">
+          A COMPLETE DIGITAL<br />
+          <span class="text-gradient-purple-blue">SHOPPING EXPERIENCE.</span>
+        </h2>
+
+        <div class="cs-narrative-grid">
+          <div class="cs-narrative-main">
+            <p class="cs-lead-paragraph">
+              VELORA was built as a fashion and lifestyle e-commerce platform with a responsive customer-facing experience and supporting backend functionality.
+            </p>
+            <p class="cs-body-paragraph">
+              Rather than assembling an off-the-shelf template with rigid constraints, the storefront was custom-engineered from the ground up using modern web standards. It delivers instant catalog exploration, structured relational product taxonomy, stateful shopping sessions, and an authenticated administration interface for catalog and order operations.
+            </p>
+          </div>
+
+          <div class="cs-feature-checklist-card">
+            <h3 class="cs-checklist-title">Delivered Platform Capabilities</h3>
+            <ul class="cs-checklist-list">
+              <li><span class="chk-icon">✓</span> Product browsing</li>
+              <li><span class="chk-icon">✓</span> Category filtering</li>
+              <li><span class="chk-icon">✓</span> Real-time search</li>
+              <li><span class="chk-icon">✓</span> Dynamic product details</li>
+              <li><span class="chk-icon">✓</span> Persistent shopping cart</li>
+              <li><span class="chk-icon">✓</span> Customer checkout flow</li>
+              <li><span class="chk-icon">✓</span> Order creation &amp; tracking</li>
+              <li><span class="chk-icon">✓</span> Admin product management</li>
+              <li><span class="chk-icon">✓</span> Admin order management</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. SECTION 02: THE CHALLENGE (COLORFUL ACCENT) ==================== -->
+    <section class="cs-section cs-theme-accent">
+      <div class="container cs-narrative-container">
+        <div class="cs-section-indicator accent-indicator">
+          <span class="cs-sec-num">02</span>
+          <span class="cs-sec-bar"></span>
+          <span class="cs-sec-tag">THE CHALLENGE</span>
+        </div>
+
+        <h2 class="cs-section-heading">
+          MORE THAN A<br />
+          <span class="text-gradient-electric">PRODUCT CATALOG.</span>
+        </h2>
+
+        <div class="cs-challenge-grid">
+          <div class="cs-challenge-intro">
+            <p class="cs-lead-paragraph text-slate-200">
+              The goal was to create a shopping experience that feels polished on the frontend while still having the underlying functionality required for a real e-commerce workflow.
+            </p>
+            <p class="cs-body-paragraph text-slate-400">
+              Many digital storefronts suffer from either poor visual execution or shallow backend implementations that break as soon as real transaction workflows occur. VELORA needed to balance both worlds seamlessly.
+            </p>
+          </div>
+
+          <div class="cs-challenge-pillars">
+            <div class="cs-pillar-item">
+              <div class="cs-pillar-idx">01</div>
+              <div class="cs-pillar-content">
+                <h4>Responsive Experience</h4>
+                <p>Ensuring micro-interactions, touch navigation, and fluid layouts adapt gracefully from high-density 4K displays down to compact mobile viewports.</p>
+              </div>
+            </div>
+
+            <div class="cs-pillar-item">
+              <div class="cs-pillar-idx">02</div>
+              <div class="cs-pillar-content">
+                <h4>Product Data Integrity</h4>
+                <p>Structuring relational models across categories, variants, inventory thresholds, and pricing formats without data fragmentation.</p>
+              </div>
+            </div>
+
+            <div class="cs-pillar-item">
+              <div class="cs-pillar-idx">03</div>
+              <div class="cs-pillar-content">
+                <h4>Shopping Flow &amp; State</h4>
+                <p>Engineering a dependable shopping cart that persists across client sessions and accurately computes line items, coupons, and checkout totals.</p>
+              </div>
+            </div>
+
+            <div class="cs-pillar-item">
+              <div class="cs-pillar-idx">04</div>
+              <div class="cs-pillar-content">
+                <h4>Backend &amp; Order Operations</h4>
+                <p>Equipping administrative users with protected authentication to review incoming orders, inspect item details, and manage inventory states.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 5. EXPLORE THE PRODUCT (EDITORIAL SCREENSHOT GALLERY) ==================== -->
+    <section class="cs-theme-editorial-gallery" id="explore-product">
+      <div class="container">
+        <div class="cs-section-indicator">
+          <span class="cs-sec-num">03</span>
+          <span class="cs-sec-bar"></span>
+          <span class="cs-sec-tag">EXPLORE THE PRODUCT</span>
+        </div>
+
+        <div class="cs-gallery-header">
+          <h2 class="cs-section-heading light-heading">
+            EXPLORE THE<br />
+            <span class="text-gradient-purple-blue">PRODUCT.</span>
+          </h2>
+          <p class="cs-gallery-intro-text">
+            A look inside the actual VELORA shopping experience.
+          </p>
+        </div>
+
+        <!-- Editorial Visual Gallery Stack (Clean Real Screenshots) -->
+        <div class="cs-editorial-gallery-stack">
+          <!-- 01 — HOMEPAGE (Large Real Screenshot) -->
+          <div class="cs-editorial-card">
+            <div class="cs-editorial-img-wrap">
+              <img 
+                src="/images/velora-case-study/homepage.png" 
+                alt="VELORA Live Storefront Homepage Screenshot" 
+                width="1901" 
+                height="911" 
+                loading="lazy" 
+              />
+            </div>
+            <div class="cs-editorial-label">
+              <span class="cs-label-tag">01 — HOMEPAGE</span>
+              <p class="cs-label-headline">A polished storefront experience designed around product discovery.</p>
+            </div>
+          </div>
+
+          <!-- 02 — PRODUCT COLLECTION (Large Real Screenshot) -->
+          <div class="cs-editorial-card">
+            <div class="cs-editorial-img-wrap">
+              <img 
+                src="/images/velora-case-study/collection.png" 
+                alt="VELORA Product Collection and Filtering Page Screenshot" 
+                width="1901" 
+                height="911" 
+                loading="lazy" 
+              />
+            </div>
+            <div class="cs-editorial-label">
+              <span class="cs-label-tag">02 — PRODUCT COLLECTION</span>
+              <p class="cs-label-headline">Product discovery with search, categories, filtering and a responsive product grid.</p>
+            </div>
+          </div>
+
+          <!-- 03 — SHOPPING CART (Large Real Screenshot) -->
+          <div class="cs-editorial-card">
+            <div class="cs-editorial-img-wrap">
+              <img 
+                src="/images/velora-case-study/cart.png" 
+                alt="VELORA Shopping Cart and Bag Management Screenshot" 
+                width="1901" 
+                height="911" 
+                loading="lazy" 
+              />
+            </div>
+            <div class="cs-editorial-label">
+              <span class="cs-label-tag">03 — SHOPPING CART</span>
+              <p class="cs-label-headline">A complete cart experience with quantity management, pricing and order summary.</p>
+            </div>
+          </div>
+
+          <!-- 04 — CHECKOUT (Large Real Screenshot) -->
+          <div class="cs-editorial-card">
+            <div class="cs-editorial-img-wrap">
+              <img 
+                src="/images/velora-case-study/checkout.png" 
+                alt="VELORA Two-Step Checkout and Payment Selection Screenshot" 
+                width="1660" 
+                height="911" 
+                loading="lazy" 
+              />
+            </div>
+            <div class="cs-editorial-label">
+              <span class="cs-label-tag">04 — CHECKOUT</span>
+              <p class="cs-label-headline">A structured checkout flow covering customer information, shipping details, payment selection and order placement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 6. TRY THE REAL PRODUCT (LIVE CALLOUT) ==================== -->
+    <section class="cs-try-product-section" id="try-product">
+      <div class="container">
+        <div class="cs-try-product-card">
+          <div class="cs-meta-badge" style="margin-bottom: 1.25rem;">
+            <span class="cs-badge-dot"></span>
+            <span class="cs-badge-text">LIVE PRODUCT</span>
+          </div>
+          <h2 class="cs-try-title">
+            TRY THE REAL<br />
+            <span class="text-gradient-electric">PRODUCT.</span>
+          </h2>
+          <p class="cs-try-desc">
+            Explore VELORA yourself and experience the complete shopping flow.
+          </p>
+          <a href="https://velora-ecommerce-flame.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-electric cs-try-btn" id="try-product-open-btn">
+            <span>OPEN VELORA</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 7. WHAT'S INSIDE (CONFIRMED REAL CAPABILITIES) ==================== -->
+    <section class="cs-section cs-theme-dark" id="capabilities">
+      <div class="container">
+        <div class="cs-section-indicator">
+          <span class="cs-sec-num">04</span>
+          <span class="cs-sec-bar"></span>
+          <span class="cs-sec-tag">WHAT'S INSIDE</span>
+        </div>
+
+        <h2 class="cs-section-heading">
+          WHAT'S<br />
+          <span class="text-gradient-electric">INSIDE.</span>
+        </h2>
+
+        <p class="cs-body-paragraph text-slate-300" style="max-width: 680px; margin-top: -2rem; margin-bottom: 2rem;">
+          Verified product capabilities engineered into the active application.
+        </p>
+
+        <div class="cs-capabilities-grid">
+          <div class="cs-capability-card">
+            <span class="cs-cap-num">01 / DISCOVERY</span>
+            <h3 class="cs-cap-title">PRODUCT DISCOVERY</h3>
+            <p class="cs-cap-desc">Browse products, categories and search results.</p>
+          </div>
+
+          <div class="cs-capability-card">
+            <span class="cs-cap-num">02 / DETAILS</span>
+            <h3 class="cs-cap-title">PRODUCT DETAILS</h3>
+            <p class="cs-cap-desc">Dedicated product pages with product information.</p>
+          </div>
+
+          <div class="cs-capability-card">
+            <span class="cs-cap-num">03 / CART</span>
+            <h3 class="cs-cap-title">CART</h3>
+            <p class="cs-cap-desc">Add products, change quantities and manage the shopping bag.</p>
+          </div>
+
+          <div class="cs-capability-card">
+            <span class="cs-cap-num">04 / CHECKOUT</span>
+            <h3 class="cs-cap-title">CHECKOUT</h3>
+            <p class="cs-cap-desc">Shipping/contact information and payment selection.</p>
+          </div>
+
+          <div class="cs-capability-card">
+            <span class="cs-cap-num">05 / ORDERS</span>
+            <h3 class="cs-cap-title">ORDERS</h3>
+            <p class="cs-cap-desc">Order creation and confirmation flow.</p>
+          </div>
+
+          <div class="cs-capability-card">
+            <span class="cs-cap-num">06 / ADMIN</span>
+            <h3 class="cs-cap-title">ADMIN</h3>
+            <p class="cs-cap-desc">Product and order management functionality.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 8. SECTION 05: TECHNICAL PROOF (DARK) ==================== -->
+    <section class="cs-section cs-theme-dark">
+      <div class="container">
+        <div class="cs-section-indicator">
+          <span class="cs-sec-num">05</span>
+          <span class="cs-sec-bar"></span>
+          <span class="cs-sec-tag">TECHNICAL PROOF</span>
+        </div>
+
+        <h2 class="cs-section-heading">
+          BUILT AS A REAL<br />
+          <span class="text-gradient-electric">FULL-STACK PRODUCT.</span>
+        </h2>
+
+        <div class="cs-tech-matrix-grid">
+          <!-- Tech 1 -->
+          <div class="cs-tech-card">
+            <div class="cs-tech-pill">FRAMEWORK</div>
+            <h3 class="cs-tech-title">NEXT.JS</h3>
+            <p class="cs-tech-desc">App Router architecture powering server-side rendering, SEO metadata, dynamic product routing (/products/[id]), and rapid asset delivery.</p>
+          </div>
+
+          <!-- Tech 2 -->
+          <div class="cs-tech-card">
+            <div class="cs-tech-pill">FRONTEND</div>
+            <h3 class="cs-tech-title">REACT</h3>
+            <p class="cs-tech-desc">Component-driven architecture enabling reactive cart drawers, dynamic category filters, instant keyword search, and multi-step checkout state.</p>
+          </div>
+
+          <!-- Tech 3 -->
+          <div class="cs-tech-card">
+            <div class="cs-tech-pill">LANGUAGE</div>
+            <h3 class="cs-tech-title">TYPESCRIPT</h3>
+            <p class="cs-tech-desc">End-to-end type safety guaranteeing strict schema validation across product catalogs, line-item payloads, and database API contracts.</p>
+          </div>
+
+          <!-- Tech 4 -->
+          <div class="cs-tech-card">
+            <div class="cs-tech-pill">STYLING</div>
+            <h3 class="cs-tech-title">TAILWIND CSS</h3>
+            <p class="cs-tech-desc">Custom luxury fashion styling system providing fluid responsive layouts, editorial typography, and high-performance design utilities.</p>
+          </div>
+
+          <!-- Tech 5 -->
+          <div class="cs-tech-card">
+            <div class="cs-tech-pill">INFRASTRUCTURE</div>
+            <h3 class="cs-tech-title">SUPABASE</h3>
+            <p class="cs-tech-desc">Cloud backend service managing database connections, serverless API execution, Row Level Security (RLS), and admin authentication.</p>
+          </div>
+
+          <!-- Tech 6 -->
+          <div class="cs-tech-card">
+            <div class="cs-tech-pill">DATABASE</div>
+            <h3 class="cs-tech-title">POSTGRESQL</h3>
+            <p class="cs-tech-desc">Relational database storing structured product records, categories, inventory states, and transactional customer orders with strict integrity.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 8. ARCHITECTURE: VISUAL PIPELINE DIAGRAM (LIGHT) ==================== -->
+    <section class="cs-section cs-theme-light">
+      <div class="container cs-narrative-container">
+        <div class="cs-section-indicator">
+          <span class="cs-sec-num">06</span>
+          <span class="cs-sec-bar"></span>
+          <span class="cs-sec-tag">ARCHITECTURE</span>
+        </div>
+
+        <h2 class="cs-section-heading light-heading">
+          FULL-STACK SYSTEM<br />
+          <span class="text-gradient-purple-blue">DATA FLOW.</span>
+        </h2>
+
+        <p class="cs-gallery-intro">
+          How customer requests and administrative commands travel through the application layer.
+        </p>
+
+        <!-- Architecture Flow Visual Component -->
+        <div class="cs-arch-wrapper">
+          <!-- Flow 1: Customer Storefront Flow -->
+          <div class="cs-arch-flow-card">
+            <div class="cs-arch-flow-header">
+              <span class="cs-flow-badge customer-badge">CUSTOMER PIPELINE</span>
+              <span class="cs-flow-scope">Public Storefront &amp; Checkout Funnel</span>
+            </div>
+            <div class="cs-arch-pipeline">
+              <div class="cs-arch-node">
+                <span class="node-badge">CLIENT</span>
+                <span class="node-title">Customer</span>
+                <span class="node-note">Browser / Mobile</span>
+              </div>
+              <div class="cs-arch-connector">
+                <span class="conn-line"></span>
+                <span class="conn-arrow">→</span>
+              </div>
+              <div class="cs-arch-node">
+                <span class="node-badge">APP ROUTER</span>
+                <span class="node-title">Next.js Application</span>
+                <span class="node-note">Catalog / Cart / UI</span>
+              </div>
+              <div class="cs-arch-connector">
+                <span class="conn-line"></span>
+                <span class="conn-arrow">→</span>
+              </div>
+              <div class="cs-arch-node">
+                <span class="node-badge">LOGIC LAYER</span>
+                <span class="node-title">API / Server Logic</span>
+                <span class="node-note">Validation &amp; Orders</span>
+              </div>
+              <div class="cs-arch-connector">
+                <span class="conn-line"></span>
+                <span class="conn-arrow">→</span>
+              </div>
+              <div class="cs-arch-node">
+                <span class="node-badge">BACKEND</span>
+                <span class="node-title">Supabase</span>
+                <span class="node-note">RLS &amp; Auth</span>
+              </div>
+              <div class="cs-arch-connector">
+                <span class="conn-line"></span>
+                <span class="conn-arrow">→</span>
+              </div>
+              <div class="cs-arch-node">
+                <span class="node-badge">DATA STORE</span>
+                <span class="node-title">PostgreSQL</span>
+                <span class="node-note">Relational Storage</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Flow 2: Protected Admin Management Flow -->
+          <div class="cs-arch-flow-card admin-flow-card">
+            <div class="cs-arch-flow-header">
+              <span class="cs-flow-badge admin-badge">ADMIN PIPELINE</span>
+              <span class="cs-flow-scope">Protected Catalog &amp; Order Operations</span>
+            </div>
+            <div class="cs-arch-pipeline">
+              <div class="cs-arch-node">
+                <span class="node-badge admin-node-badge">OPERATOR</span>
+                <span class="node-title">Admin User</span>
+                <span class="node-note">Merchant Login</span>
+              </div>
+              <div class="cs-arch-connector">
+                <span class="conn-line"></span>
+                <span class="conn-arrow">→</span>
+              </div>
+              <div class="cs-arch-node">
+                <span class="node-badge admin-node-badge">AUTH GUARD</span>
+                <span class="node-title">Next.js Admin UI</span>
+                <span class="node-note">Session Verification</span>
+              </div>
+              <div class="cs-arch-connector">
+                <span class="conn-line"></span>
+                <span class="conn-arrow">→</span>
+              </div>
+              <div class="cs-arch-node">
+                <span class="node-badge admin-node-badge">ADMIN API</span>
+                <span class="node-title">API / Server Logic</span>
+                <span class="node-note">Fulfillment Actions</span>
+              </div>
+              <div class="cs-arch-connector">
+                <span class="conn-line"></span>
+                <span class="conn-arrow">→</span>
+              </div>
+              <div class="cs-arch-node">
+                <span class="node-badge admin-node-badge">DATA ACCESS</span>
+                <span class="node-title">Supabase / PostgreSQL</span>
+                <span class="node-note">Admin Mutations</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 9. SECTION 05: HOW IT WAS BUILT (DEVELOPMENT APPROACH) ==================== -->
+    <section class="cs-section cs-theme-dark">
+      <div class="container">
+        <div class="cs-section-indicator">
+          <span class="cs-sec-num">07</span>
+          <span class="cs-sec-bar"></span>
+          <span class="cs-sec-tag">HOW IT WAS BUILT</span>
+        </div>
+
+        <h2 class="cs-section-heading">
+          DEVELOPMENT<br />
+          <span class="text-gradient-electric">APPROACH.</span>
+        </h2>
+
+        <div class="cs-steps-grid">
+          <!-- Step 1 -->
+          <div class="cs-step-box">
+            <span class="cs-step-stage">STAGE 01</span>
+            <h3 class="cs-step-name">DISCOVER</h3>
+            <p class="cs-step-text">Defined product catalog structure, fashion categorization taxonomy, and client-side performance requirements.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="cs-step-box">
+            <span class="cs-step-stage">STAGE 02</span>
+            <h3 class="cs-step-name">DESIGN</h3>
+            <p class="cs-step-text">Designed minimalist luxury visual identity, high-contrast product layouts, and tactile responsive navigation.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="cs-step-box">
+            <span class="cs-step-stage">STAGE 03</span>
+            <h3 class="cs-step-name">DEVELOP</h3>
+            <p class="cs-step-text">Engineered Next.js component system, client context providers for cart state, and dynamic routing architectures.</p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="cs-step-box">
+            <span class="cs-step-stage">STAGE 04</span>
+            <h3 class="cs-step-name">INTEGRATE</h3>
+            <p class="cs-step-text">Connected Supabase database tables, schema models, API route handlers, and protected session security.</p>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="cs-step-box">
+            <span class="cs-step-stage">STAGE 05</span>
+            <h3 class="cs-step-name">TEST</h3>
+            <p class="cs-step-text">Verified catalog filtering speed, cart session persistence across reloads, checkout validation, and admin authentication.</p>
+          </div>
+
+          <!-- Step 6 -->
+          <div class="cs-step-box">
+            <span class="cs-step-stage">STAGE 06</span>
+            <h3 class="cs-step-name">DEPLOY</h3>
+            <p class="cs-step-text">Configured production build bundles, asset optimization, and continuous deployment workflows via Vercel.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 10. SECTION 08: THE RESULT (LIVE PRODUCT PROOF) ==================== -->
+    <section class="cs-section cs-theme-accent">
+      <div class="container cs-narrative-container">
+        <div class="cs-section-indicator accent-indicator">
+          <span class="cs-sec-num">08</span>
+          <span class="cs-sec-bar"></span>
+          <span class="cs-sec-tag">THE RESULT</span>
+        </div>
+
+        <h2 class="cs-section-heading">
+          FROM IDEA<br />
+          <span class="text-gradient-electric">TO LIVE PRODUCT.</span>
+        </h2>
+
+        <div class="cs-outcome-card">
+          <p class="cs-lead-paragraph text-slate-100">
+            A functional, responsive full-stack e-commerce product with live customer shopping flows, database operations, and administrative controls.
+          </p>
+          <p class="cs-body-paragraph text-slate-300" style="margin-top: 1rem;">
+            VELORA exemplifies CJ Tech's standard for digital products: pairing bespoke design sensitivity with dependable database schemas, persistent session state, and real-world deployment. Explore the live website or inspect the source repository to review the implementation.
+          </p>
+
+          <div class="cs-outcome-actions">
+            <a href="https://velora-ecommerce-flame.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-electric" id="result-view-live-btn">
+              <span>VIEW LIVE WEBSITE →</span>
+            </a>
+            <a href="https://github.com/Sriram-0549/velora-ecommerce" target="_blank" rel="noopener noreferrer" class="btn btn-glass" id="result-view-source-btn">
+              <span>VIEW SOURCE →</span>
+            </a>
+            <a href="/contact" class="btn btn-glass" id="result-start-project-btn">
+              <span>START A PROJECT →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 11. FINAL CTA (RADIANT GRADIENT) ==================== -->
+    <section class="section cta-radiant-section">
+      <div class="container cta-grid-2col">
+        <div>
+          <div class="studio-badge">
+            <span class="badge-dot"></span>
+            <span>NEXT PROJECT</span>
+          </div>
+          <h2 class="cta-headline">
+            BUILD SOMETHING<br />
+            <span class="text-gradient-electric">LIKE THIS?</span>
+          </h2>
+          <p class="cta-subhead">
+            Have a website, application or business idea in mind? Let's talk about it.
+          </p>
+        </div>
+
+        <div class="inquiry-form-card" style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start;">
+          <div class="studio-badge" style="margin-bottom: 1.25rem;">
+            <span class="badge-dot"></span>
+            <span>LET'S TALK</span>
+          </div>
+          <h3 style="font-size: 1.75rem; font-weight: 800; color: #FFFFFF; line-height: 1.25; margin-bottom: 1rem;">
+            Have an idea ready to build?
+          </h3>
+          <p style="color: #94A3B8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.75rem;">
+            Whether you need a custom full-stack web application, an automated business pipeline, or an e-commerce platform, we can take it from architecture to production.
+          </p>
+          <a href="/contact" class="btn btn-electric" style="width: 100%; justify-content: center; padding: 1.1rem 2rem; font-size: 1.05rem;">
+            <span>START A PROJECT →</span>
+          </a>
+          <div style="margin-top: 1rem; font-size: 0.82rem; color: #94A3B8;">
+            Direct channel: <a href="https://wa.me/919361628990" target="_blank" rel="noopener noreferrer" style="color: #38BDF8; text-decoration: underline; font-weight: 600;">WhatsApp (+91 93616 28990)</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <a href="/" class="brand-lockup" aria-label="CJ TECH Home">
+          <img src="../../cj-tech-monogram.png" alt="CJ TECH Monogram" class="brand-monogram-img" width="38" height="33" />
+          <div class="brand-typography">
+            <div class="brand-wordmark">
+              <span class="wordmark-cj">CJ</span>
+              <span class="wordmark-tech">TECH</span>
+            </div>
+            <span class="brand-descriptor">SOFTWARE • WEB • AUTOMATION</span>
+          </div>
+        </a>
+
+        <ul class="footer-nav-list">
+          <li><a href="/#work" class="footer-link">Work</a></li>
+          <li><a href="/#services" class="footer-link">Services</a></li>
+          <li><a href="/#process" class="footer-link">Process</a></li>
+          <li><a href="/#about" class="footer-link">About</a></li>
+          <li><a href="/contact" class="footer-link">Contact</a></li>
+          <li><a href="https://wa.me/919361628990" target="_blank" rel="noopener noreferrer" class="footer-link" style="color: #38BDF8;">WhatsApp</a></li>
+          <li><a href="https://www.instagram.com/cjtech_web" target="_blank" rel="noopener noreferrer" class="footer-link" style="color: #EC4899;">Instagram</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span>© 2026 CJ Tech. All rights reserved.</span>
+        <span>CHENNAI, INDIA · SERVING WORLDWIDE · 24/7</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript Bundle -->
+  <script type="module" src="../../script.js"></script>
+</body>
+</html>

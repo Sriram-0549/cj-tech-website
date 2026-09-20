@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CJ TECH — Creative Technology Studio</title>
+  <meta name="description" content="CJ Tech is a creative technology studio that designs and builds websites, web applications and automation systems for businesses ready to grow." />
+  
+  <!-- Favicon: Clean Monogram Asset -->
+  <link rel="icon" type="image/png" href="cj-tech-monogram.png" />
+
+  <!-- Open Graph & Social Cards -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="CJ TECH — Creative Technology Studio" />
+  <meta property="og:description" content="CJ Tech is a creative technology studio that designs and builds websites, web applications and automation systems for businesses ready to grow." />
+  <meta property="og:image" content="/cj_tech_full_lockup.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CJ TECH — Creative Technology Studio" />
+  <meta name="twitter:description" content="CJ Tech is a creative technology studio that designs and builds websites, web applications and automation systems for businesses ready to grow." />
+
+  <!-- Google Fonts: Manrope (Body & Display), JetBrains Mono (Technical) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- CJ Tech Creative Studio Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Subtle Desktop Custom Cursor -->
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-outline" id="cursor-outline" aria-hidden="true"></div>
+
+  <!-- ==================== HEADER / NAVBAR ==================== -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <!-- CJ Tech Brand Lockup -->
+      <a href="#home" class="brand-lockup" aria-label="CJ TECH Home">
+        <img src="cj-tech-monogram.png" alt="CJ TECH Monogram" class="brand-monogram-img" width="38" height="33" />
+        <div class="brand-typography">
+          <div class="brand-wordmark">
+            <span class="wordmark-cj">CJ</span>
+            <span class="wordmark-tech">TECH</span>
+          </div>
+          <span class="brand-descriptor">SOFTWARE • WEB • AUTOMATION</span>
+        </div>
+      </a>
+
+      <!-- Center Desktop Navigation Links -->
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li><a href="#work" class="nav-link">Work</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#process" class="nav-link">Process</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="/contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right Navbar Action -->
+      <div class="nav-actions">
+        <a href="/contact" class="btn btn-sm btn-electric">Start a Project →</a>
+        <button class="hamburger" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer & Overlay -->
+  <div class="mobile-nav-overlay" id="drawer-overlay" aria-hidden="true"></div>
+  <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation" aria-hidden="true">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <a href="#home" class="brand-lockup" style="width: 145px;">
+        <img src="cj-tech-monogram.png" alt="CJ TECH Monogram" class="brand-monogram-img" width="32" height="28" />
+        <div class="brand-typography">
+          <div class="brand-wordmark">
+            <span class="wordmark-cj">CJ</span>
+            <span class="wordmark-tech">TECH</span>
+          </div>
+          <span class="brand-descriptor">SOFTWARE • WEB • AUTOMATION</span>
+        </div>
+      </a>
+      <button class="mobile-drawer-close" id="drawer-close" aria-label="Close navigation menu">✕</button>
+    </div>
+    <ul class="mobile-menu-links">
+      <li><a href="#work" class="mobile-nav-link">Work</a></li>
+      <li><a href="#services" class="mobile-nav-link">Services</a></li>
+      <li><a href="#process" class="mobile-nav-link">Process</a></li>
+      <li><a href="#about" class="mobile-nav-link">About</a></li>
+      <li><a href="/contact" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <div style="margin-top: auto; padding-top: 2rem;">
+      <a href="/contact" class="btn btn-electric mobile-nav-link" style="width: 100%; text-align: center;">Start a Project →</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- ==================== SECTION 1: HERO ==================== -->
+    <section class="section theme-dark hero-section" id="home">
+      <div class="container hero-grid">
+        <!-- Hero Left: Strong Creative Typography -->
+        <div class="hero-content">
+          <div class="studio-badge">
+            <span class="badge-dot"></span>
+            <span>CREATIVE TECHNOLOGY STUDIO</span>
+          </div>
+          
+          <h1 class="hero-headline">
+            <span class="hl-line">BUILD DIGITAL</span>
+            <span class="hl-line hl-gradient-blue-violet">PRODUCTS</span>
+            <span class="hl-line">THAT PEOPLE</span>
+            <span class="hl-line hl-gradient-pink-violet">REMEMBER.</span>
+          </h1>
+
+          <p class="hero-subhead">
+            CJ Tech designs and builds websites, applications and automation systems for businesses ready to grow.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="/contact" class="btn btn-electric">
+              <span>Start a Project</span>
+              <span>→</span>
+            </a>
+            <a href="#work" class="btn btn-glass">
+              <span>View Our Work</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Right: Interactive Creative Studio Graphic Visual -->
+        <div class="hero-visual-stage" id="hero-visual-stage" aria-label="Interactive Creative Studio Artwork">
+          <div class="creative-visual-wrap" id="creative-visual-wrap">
+            <!-- Multi-Stop Interactive Gradient Orb -->
+            <div class="interactive-gradient-orb" id="gradient-orb" aria-hidden="true"></div>
+
+            <!-- Precision Technical Orbital Rings & Laser Arcs -->
+            <div class="creative-orbital-ring" aria-hidden="true"></div>
+            <div class="creative-orbital-ring-2" aria-hidden="true"></div>
+
+            <!-- Floating Studio Centerpiece Emblem -->
+            <div class="hero-floating-emblem" aria-hidden="true">
+              <img src="cj-tech-hero-emblem.png" alt="CJ TECH Emblem" class="hero-emblem-image" width="270" height="232" />
+            </div>
+
+            <!-- Ambient Floating Accent Nodes -->
+            <div class="floating-accent-node node-1" aria-hidden="true"></div>
+            <div class="floating-accent-node node-2" aria-hidden="true"></div>
+            <div class="floating-accent-node node-3" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 2: KINETIC TYPOGRAPHY STRIP 1 ==================== -->
+    <div class="ticker-band ticker-band-vibrant" aria-label="Capabilities Marquee">
+      <div class="ticker-track">
+        <div class="ticker-item">WEB DEVELOPMENT <span class="ticker-node">•</span> WEB APPS <span class="ticker-node">•</span> MOBILE APPS <span class="ticker-node">•</span> AUTOMATION <span class="ticker-node">•</span> AI SOLUTIONS <span class="ticker-node">•</span> DIGITAL PRODUCTS <span class="ticker-node">•</span></div>
+        <div class="ticker-item">WEB DEVELOPMENT <span class="ticker-node">•</span> WEB APPS <span class="ticker-node">•</span> MOBILE APPS <span class="ticker-node">•</span> AUTOMATION <span class="ticker-node">•</span> AI SOLUTIONS <span class="ticker-node">•</span> DIGITAL PRODUCTS <span class="ticker-node">•</span></div>
+        <div class="ticker-item">WEB DEVELOPMENT <span class="ticker-node">•</span> WEB APPS <span class="ticker-node">•</span> MOBILE APPS <span class="ticker-node">•</span> AUTOMATION <span class="ticker-node">•</span> AI SOLUTIONS <span class="ticker-node">•</span> DIGITAL PRODUCTS <span class="ticker-node">•</span></div>
+        <div class="ticker-item">WEB DEVELOPMENT <span class="ticker-node">•</span> WEB APPS <span class="ticker-node">•</span> MOBILE APPS <span class="ticker-node">•</span> AUTOMATION <span class="ticker-node">•</span> AI SOLUTIONS <span class="ticker-node">•</span> DIGITAL PRODUCTS <span class="ticker-node">•</span></div>
+      </div>
+    </div>
+
+    <!-- ==================== SECTION 3: INTRODUCTION (Editorial Off-White) ==================== -->
+    <section class="section theme-offwhite intro-section">
+      <div class="container intro-container">
+        <div class="studio-badge">
+          <span class="badge-dot"></span>
+          <span>THE PHILOSOPHY</span>
+        </div>
+        
+        <h2 class="intro-headline">
+          WE DON'T JUST BUILD WEBSITES.
+          <span class="intro-break">WE BUILD <span class="text-gradient-electric">DIGITAL EXPERIENCES</span> FOR REAL BUSINESSES.</span>
+        </h2>
+
+        <p class="intro-paragraph">
+          CJ Tech helps businesses turn ideas into useful digital products — from high-converting websites and web applications to business automation and future-ready AI solutions.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 4: SERVICES — ASYMMETRIC EDITORIAL ==================== -->
+    <section class="section theme-dark services-section" id="services">
+      <div class="container">
+        <!-- Section Intro -->
+        <div class="services-head-wrap">
+          <div class="studio-badge">
+            <span class="badge-dot"></span>
+            <span>SERVICES</span>
+          </div>
+          <h2 class="section-title">Digital products built<br />around your business.</h2>
+          <p class="section-desc">
+            From your first website to custom applications and automation, CJ Tech builds practical digital solutions that help businesses move forward.
+          </p>
+        </div>
+
+        <!-- Asymmetric Editorial Services Grid -->
+        <div class="services-editorial-grid">
+          
+          <!-- 01 WEBSITES (Featured Service — Largest, 58% width in first row) -->
+          <div class="service-editorial-card card-featured-websites" tabindex="0">
+            <div class="service-bg-art" aria-hidden="true">
+              <span class="service-watermark-num">01</span>
+              <div class="service-art-shape shape-glow-blue"></div>
+            </div>
+            <div class="service-card-inner">
+              <div class="service-card-top">
+                <span class="service-num-badge">01</span>
+                <div class="service-arrow-cue" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3 class="service-name">WEBSITES</h3>
+                <p class="service-description">
+                  Modern, responsive websites designed to turn visitors into customers.
+                </p>
+              </div>
+              <div class="service-tags-row">
+                <span class="service-tag">Business Websites</span>
+                <span class="service-tag">E-Commerce</span>
+                <span class="service-tag">Landing Pages</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 02 WEB APPLICATIONS (42% width in first row) -->
+          <div class="service-editorial-card card-web-apps" tabindex="0">
+            <div class="service-bg-art" aria-hidden="true">
+              <span class="service-watermark-num">02</span>
+              <div class="service-art-shape shape-glow-violet"></div>
+            </div>
+            <div class="service-card-inner">
+              <div class="service-card-top">
+                <span class="service-num-badge">02</span>
+                <div class="service-arrow-cue" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3 class="service-name">WEB APPLICATIONS</h3>
+                <p class="service-description">
+                  Custom web applications built around the way your business actually works.
+                </p>
+              </div>
+              <div class="service-tags-row">
+                <span class="service-tag">Dashboards</span>
+                <span class="service-tag">Portals</span>
+                <span class="service-tag">Custom Systems</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 03 MOBILE APPS (Row 2, Left) -->
+          <div class="service-editorial-card card-mobile-apps" tabindex="0">
+            <div class="service-bg-art" aria-hidden="true">
+              <span class="service-watermark-num">03</span>
+              <div class="service-art-shape shape-glow-magenta"></div>
+            </div>
+            <div class="service-card-inner">
+              <div class="service-card-top">
+                <span class="service-num-badge">03</span>
+                <div class="service-arrow-cue" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3 class="service-name">MOBILE APPS</h3>
+                <p class="service-description">
+                  Mobile experiences designed for customers, teams and growing businesses.
+                </p>
+              </div>
+              <div class="service-tags-row">
+                <span class="service-tag">iOS &amp; Android</span>
+                <span class="service-tag">Cross-Platform</span>
+                <span class="service-tag">Internal Tools</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 04 AUTOMATION (Row 2, Right) -->
+          <div class="service-editorial-card card-automation" tabindex="0">
+            <div class="service-bg-art" aria-hidden="true">
+              <span class="service-watermark-num">04</span>
+              <div class="service-art-shape shape-glow-cyan"></div>
+            </div>
+            <div class="service-card-inner">
+              <div class="service-card-top">
+                <span class="service-num-badge">04</span>
+                <div class="service-arrow-cue" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3 class="service-name">AUTOMATION</h3>
+                <p class="service-description">
+                  Connect repetitive tasks, APIs and workflows so your business spends less time doing manual work.
+                </p>
+              </div>
+              <div class="service-tags-row">
+                <span class="service-tag">API Integration</span>
+                <span class="service-tag">Workflow Pipelines</span>
+                <span class="service-tag">Sync Engines</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 05 AI SOLUTIONS (Row 3, Larger Horizontal Feature) -->
+          <div class="service-editorial-card card-ai-solutions" tabindex="0">
+            <div class="service-bg-art" aria-hidden="true">
+              <span class="service-watermark-num">05</span>
+              <div class="service-art-shape shape-glow-ai"></div>
+            </div>
+            <div class="service-card-inner">
+              <div class="service-card-top">
+                <span class="service-num-badge">05</span>
+                <div class="service-arrow-cue" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3 class="service-name">AI SOLUTIONS</h3>
+                <p class="service-description">
+                  Practical AI integrations for search, automation, support and business workflows.
+                </p>
+              </div>
+              <div class="service-tags-row">
+                <span class="service-tag">Smart Search</span>
+                <span class="service-tag">Workflow Copilots</span>
+                <span class="service-tag">Data Extraction</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 06 MAINTENANCE & SUPPORT (Row 3, Compact Supporting Service) -->
+          <div class="service-editorial-card card-maintenance" tabindex="0">
+            <div class="service-bg-art" aria-hidden="true">
+              <span class="service-watermark-num">06</span>
+              <div class="service-art-shape shape-glow-slate"></div>
+            </div>
+            <div class="service-card-inner">
+              <div class="service-card-top">
+                <span class="service-num-badge">06</span>
+                <div class="service-arrow-cue" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3 class="service-name">MAINTENANCE &amp; SUPPORT</h3>
+                <p class="service-description">
+                  Keep your website or application secure, updated and running smoothly after launch.
+                </p>
+              </div>
+              <div class="service-tags-row">
+                <span class="service-tag">Updates &amp; Security</span>
+                <span class="service-tag">Performance</span>
+                <span class="service-tag">Ongoing Support</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Section CTA -->
+        <div class="services-cta-strip">
+          <div class="services-cta-copy">
+            <span class="services-cta-sub">Have something in mind?</span>
+            <h3 class="services-cta-heading">Let's build it.</h3>
+          </div>
+          <a href="/contact" class="btn btn-electric services-cta-btn">
+            <span>START A PROJECT</span>
+            <span class="btn-arrow">→</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 5: SELECTED WORK — VELORA SHOWCASE ==================== -->
+    <section class="section theme-charcoal work-section" id="work">
+      <div class="container">
+        <div class="section-head-wrap">
+          <div class="studio-badge">
+            <span class="badge-dot"></span>
+            <span>SELECTED WORK</span>
+          </div>
+          <h2 class="section-title">BUILT FOR THE<br />REAL WORLD.</h2>
+          <p class="section-desc">
+            Production software engineered and shipped to meet practical commercial demands.
+          </p>
+        </div>
+
+        <!-- Flagship Project: VELORA Full Showcase Presentation -->
+        <article class="velora-editorial-stage velora-stage-full">
+          <div class="velora-mockup-wrapper">
+            <img 
+              src="/images/velora-case-study/velora-mockup-showcase.png" 
+              alt="VELORA — Full E-Commerce Platform Architecture & Live Showcase" 
+              width="1672" 
+              height="941" 
+              loading="lazy"
+              class="velora-mockup-full-img"
+            />
+
+            <!-- Interactive Hotspot Links mapped directly over the image action elements -->
+            <!-- 1. Left Device Showcase (Laptop & Mobile) -> Opens VELORA Case Study -->
+            <a 
+              href="/work/velora" 
+              class="velora-hotspot velora-hotspot-mockup" 
+              aria-label="Explore VELORA Case Study"
+              title="Explore VELORA Case Study"
+            ></a>
+
+            <!-- 2. View Live Website Button -->
+            <a 
+              href="https://velora-ecommerce-flame.vercel.app/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="velora-hotspot velora-hotspot-live" 
+              aria-label="View Live Website (opens in new tab)"
+              title="View Live Website"
+            ></a>
+
+            <!-- 3. View Source Button -->
+            <a 
+              href="https://github.com/Sriram-0549/velora-ecommerce" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="velora-hotspot velora-hotspot-source" 
+              aria-label="View Source on GitHub (opens in new tab)"
+              title="View Source on GitHub"
+            ></a>
+
+            <!-- 4. Live Website URL Text at Bottom -->
+            <a 
+              href="https://velora-ecommerce-flame.vercel.app/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="velora-hotspot velora-hotspot-url-live" 
+              aria-label="Live Website URL: https://velora-ecommerce-flame.vercel.app/"
+              title="https://velora-ecommerce-flame.vercel.app/"
+            ></a>
+
+            <!-- 5. Source URL Text at Bottom -->
+            <a 
+              href="https://github.com/Sriram-0549/velora-ecommerce" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="velora-hotspot velora-hotspot-url-source" 
+              aria-label="GitHub Source URL: https://github.com/Sriram-0549/velora-ecommerce"
+              title="https://github.com/Sriram-0549/velora-ecommerce"
+            ></a>
+          </div>
+
+          <!-- Bottom Action Bar: Ensures all primary conversion actions are accessible and prominent -->
+          <div class="velora-full-action-bar">
+            <div class="velora-bar-meta">
+              <span class="badge-dot"></span>
+              <span class="velora-bar-label">FLAGSHIP CASE STUDY // VELORA PRODUCTION BUILD</span>
+            </div>
+            <div class="velora-bar-buttons">
+              <a href="/contact" class="btn btn-electric" id="velora-start-project-btn">
+                <span>Start a Project</span>
+                <span>→</span>
+              </a>
+              <a href="/work/velora" class="btn btn-glass" id="velora-view-case-btn">
+                <span>View Case Study</span>
+                <span>→</span>
+              </a>
+              <a href="https://velora-ecommerce-flame.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-glass" id="velora-view-live-btn">
+                <span>Live Website</span>
+                <span>↗</span>
+              </a>
+              <a href="https://github.com/Sriram-0549/velora-ecommerce" target="_blank" rel="noopener noreferrer" class="btn btn-glass" id="velora-view-source-btn">
+                <span>GitHub Source</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ==================== SECTION 6: FACTUAL PROJECT STORY ==================== -->
+        <div class="story-grid-4col">
+          <div class="story-col-card">
+            <div class="story-col-label">01 // PROBLEM</div>
+            <h4 class="story-col-title">Modern Retail Need</h4>
+            <p class="story-col-text">
+              A modern fashion and lifestyle store needed a polished, ultra-responsive online shopping experience with instantaneous navigation and rock-solid state management.
+            </p>
+          </div>
+
+          <div class="story-col-card">
+            <div class="story-col-label">02 // BUILD</div>
+            <h4 class="story-col-title">End-to-End Build</h4>
+            <p class="story-col-text">
+              CJ Tech architected and developed a responsive e-commerce platform with product taxonomy browsing, persistent cart sync, secure checkout funnels, and admin inventory controls.
+            </p>
+          </div>
+
+          <div class="story-col-card">
+            <div class="story-col-label">03 // TECHNOLOGY</div>
+            <h4 class="story-col-title">Production Stack</h4>
+            <p class="story-col-text">
+              Built with Next.js App Router, React, TypeScript, Tailwind CSS, Supabase database with Row Level Security (RLS), and custom serverless API routes.
+            </p>
+          </div>
+
+          <div class="story-col-card">
+            <div class="story-col-label">04 // OUTCOME</div>
+            <h4 class="story-col-title">Live Deployment</h4>
+            <p class="story-col-text">
+              A fully functional, verified full-stack e-commerce system successfully deployed and operational for real-world commercial use.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 7: PROCESS (HOW WE WORK — CONNECTED JOURNEY) ==================== -->
+    <section class="section theme-dark process-section" id="process">
+      <div class="container">
+        
+        <!-- Section Intro -->
+        <div class="process-head-wrap">
+          <div class="studio-badge">
+            <span class="badge-dot"></span>
+            <span>HOW WE WORK</span>
+          </div>
+          <h2 class="section-title">From idea to launch.</h2>
+          <p class="section-desc">
+            A simple process built around clear communication, fast iteration and reliable delivery.
+          </p>
+
+          <!-- Client-Friendly Micro Copy -->
+          <div class="process-assurance-strip" aria-label="Process Principles">
+            <span class="assurance-item"><span class="assurance-dot dot-blue"></span> Clear scope.</span>
+            <span class="assurance-divider">/</span>
+            <span class="assurance-item"><span class="assurance-dot dot-cyan"></span> Visible progress.</span>
+            <span class="assurance-divider">/</span>
+            <span class="assurance-item"><span class="assurance-dot dot-violet"></span> No unnecessary complexity.</span>
+          </div>
+        </div>
+
+        <!-- Main Process Visual: Connected Horizontal Timeline Journey -->
+        <div class="process-journey-container">
+          <!-- Glowing Progressive Connecting Rail Line -->
+          <div class="process-timeline-rail" aria-hidden="true">
+            <div class="rail-glow-layer"></div>
+            <div class="rail-core-line"></div>
+          </div>
+
+          <!-- 5 Connected Stages -->
+          <div class="process-stages-row">
+
+            <!-- 01 DISCOVER -->
+            <div class="process-stage-col stage-01" tabindex="0">
+              <div class="stage-node-anchor">
+                <div class="stage-node-ring ring-01">
+                  <span class="stage-node-dot dot-01"></span>
+                </div>
+                <span class="stage-index-num">01</span>
+              </div>
+              <div class="stage-card">
+                <h3 class="stage-name">DISCOVER</h3>
+                <p class="stage-text">
+                  Understand the business, audience, goals and requirements.
+                </p>
+              </div>
+            </div>
+
+            <!-- 02 PLAN -->
+            <div class="process-stage-col stage-02" tabindex="0">
+              <div class="stage-node-anchor">
+                <div class="stage-node-ring ring-02">
+                  <span class="stage-node-dot dot-02"></span>
+                </div>
+                <span class="stage-index-num">02</span>
+              </div>
+              <div class="stage-card">
+                <h3 class="stage-name">PLAN</h3>
+                <p class="stage-text">
+                  Define the structure, features, technology and project scope.
+                </p>
+              </div>
+            </div>
+
+            <!-- 03 BUILD (Featured Center Moment) -->
+            <div class="process-stage-col stage-03 is-featured" tabindex="0">
+              <div class="stage-build-glow" aria-hidden="true"></div>
+              <div class="stage-node-anchor">
+                <div class="stage-node-ring ring-03 ring-featured">
+                  <span class="stage-node-dot dot-03 dot-featured"></span>
+                </div>
+                <span class="stage-index-num num-featured">03</span>
+              </div>
+              <div class="stage-card card-featured">
+                <div class="build-active-pill">
+                  <span class="build-live-dot"></span>
+                  <span>BUILDING IN PROGRESS</span>
+                </div>
+                <h3 class="stage-name name-featured">BUILD</h3>
+                <p class="stage-text">
+                  Design and develop the product with regular progress and feedback.
+                </p>
+                <div class="build-schematic-lines" aria-hidden="true">
+                  <span class="schematic-tick"></span>
+                  <span class="schematic-track"></span>
+                  <span class="schematic-tick"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 04 LAUNCH -->
+            <div class="process-stage-col stage-04" tabindex="0">
+              <div class="stage-node-anchor">
+                <div class="stage-node-ring ring-04">
+                  <span class="stage-node-dot dot-04"></span>
+                </div>
+                <span class="stage-index-num">04</span>
+              </div>
+              <div class="stage-card">
+                <h3 class="stage-name">LAUNCH</h3>
+                <p class="stage-text">
+                  Test, deploy and make sure everything works properly in production.
+                </p>
+              </div>
+            </div>
+
+            <!-- 05 SUPPORT -->
+            <div class="process-stage-col stage-05" tabindex="0">
+              <div class="stage-node-anchor">
+                <div class="stage-node-ring ring-05">
+                  <span class="stage-node-dot dot-05"></span>
+                </div>
+                <span class="stage-index-num">05</span>
+              </div>
+              <div class="stage-card">
+                <h3 class="stage-name">SUPPORT</h3>
+                <p class="stage-text">
+                  Continue improving, maintaining and supporting the product after launch.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="process-cta-banner">
+          <span class="process-cta-prompt">Have a project in mind?</span>
+          <a href="/contact" class="btn btn-electric process-cta-link">
+            <span>LET'S TALK</span>
+            <span class="btn-arrow">→</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 8: WHY CJ TECH ==================== -->
+    <section class="section theme-charcoal why-section" id="why">
+      <div class="container">
+        <!-- Section Intro -->
+        <div class="section-head-wrap why-head-wrap">
+          <div class="studio-badge">
+            <span class="badge-dot"></span>
+            <span>WHY CJ TECH</span>
+          </div>
+          <h2 class="section-title">BUILT FOR THE BUSINESS.<br />NOT JUST THE SCREEN.</h2>
+          <p class="section-desc">
+            We focus on the product behind the pixels — understanding what the business needs, building the right solution and supporting it after launch.
+          </p>
+        </div>
+
+        <!-- Asymmetric Editorial Composition -->
+        <div class="why-editorial-grid">
+          <!-- Left Column: Large Statement & Micro AI Note -->
+          <div class="why-statement-col">
+            <div class="why-statement-box">
+              <div class="why-statement-quote-mark" aria-hidden="true">“</div>
+              <blockquote class="why-large-statement">
+                GOOD DIGITAL PRODUCTS<br />SOLVE REAL PROBLEMS.
+              </blockquote>
+              <p class="why-statement-subtext">
+                Every line of code and interface decision is evaluated against one standard: does this genuinely solve the business problem and deliver practical value?
+              </p>
+            </div>
+
+            <!-- Optional AI Statement -->
+            <div class="why-ai-note">
+              <div class="why-ai-badge">
+                <span class="why-ai-icon" aria-hidden="true">✦</span>
+                <span class="why-ai-title">AI-ASSISTED. HUMAN-LED.</span>
+              </div>
+              <p class="why-ai-text">
+                AI tools help us explore, prototype and iterate faster. Product decisions, implementation and quality remain human-driven.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Column: Vertical List of 5 Principles -->
+          <div class="why-principles-list" role="list">
+            <!-- Principle 01 -->
+            <div class="principle-row principle-accent-blue" role="listitem">
+              <div class="principle-rail" aria-hidden="true"></div>
+              <div class="principle-num-col">
+                <span class="principle-num">01</span>
+              </div>
+              <div class="principle-body">
+                <h3 class="principle-name">BUILD AROUND YOUR BUSINESS</h3>
+                <p class="principle-desc">
+                  Your website or application should fit the way your business actually works — not force your business into a template.
+                </p>
+              </div>
+            </div>
+
+            <!-- Principle 02 -->
+            <div class="principle-row principle-accent-violet" role="listitem">
+              <div class="principle-rail" aria-hidden="true"></div>
+              <div class="principle-num-col">
+                <span class="principle-num">02</span>
+              </div>
+              <div class="principle-body">
+                <h3 class="principle-name">CLEAR COMMUNICATION</h3>
+                <p class="principle-desc">
+                  Keep the scope understandable, share progress regularly and make decisions without unnecessary technical complexity.
+                </p>
+              </div>
+            </div>
+
+            <!-- Principle 03 -->
+            <div class="principle-row principle-accent-cyan" role="listitem">
+              <div class="principle-rail" aria-hidden="true"></div>
+              <div class="principle-num-col">
+                <span class="principle-num">03</span>
+              </div>
+              <div class="principle-body">
+                <h3 class="principle-name">MODERN TECHNOLOGY</h3>
+                <p class="principle-desc">
+                  Use practical, maintainable technologies that make sense for the product instead of adding technology just for the sake of it.
+                </p>
+              </div>
+            </div>
+
+            <!-- Principle 04 -->
+            <div class="principle-row principle-accent-magenta" role="listitem">
+              <div class="principle-rail" aria-hidden="true"></div>
+              <div class="principle-num-col">
+                <span class="principle-num">04</span>
+              </div>
+              <div class="principle-body">
+                <h3 class="principle-name">LAUNCH + SUPPORT</h3>
+                <p class="principle-desc">
+                  The relationship doesn't have to end when the website goes live. Updates, improvements and maintenance can continue as the business grows.
+                </p>
+              </div>
+            </div>
+
+            <!-- Principle 05 -->
+            <div class="principle-row principle-accent-neutral" role="listitem">
+              <div class="principle-rail" aria-hidden="true"></div>
+              <div class="principle-num-col">
+                <span class="principle-num">05</span>
+              </div>
+              <div class="principle-body">
+                <h3 class="principle-name">PRACTICAL SOLUTIONS</h3>
+                <p class="principle-desc">
+                  Start with what the business actually needs, then expand when there is a reason to.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Small Proof Element & Bottom CTA Bar -->
+        <div class="why-footer-panel">
+          <div class="why-proof-block">
+            <div class="why-proof-badge">
+              <span class="why-proof-dot" aria-hidden="true"></span>
+              <span class="why-proof-label">CURRENTLY BUILDING DIGITAL PRODUCTS FOR THE WEB</span>
+            </div>
+            <div class="why-proof-tags">
+              <span class="proof-pill">WEB</span>
+              <span class="proof-pill-dot" aria-hidden="true">•</span>
+              <span class="proof-pill">APPLICATIONS</span>
+              <span class="proof-pill-dot" aria-hidden="true">•</span>
+              <span class="proof-pill">E-COMMERCE</span>
+              <span class="proof-pill-dot" aria-hidden="true">•</span>
+              <span class="proof-pill">AUTOMATION</span>
+            </div>
+          </div>
+
+          <div class="why-cta-block">
+            <span class="why-cta-heading">Let's build something useful.</span>
+            <a href="/contact" class="btn btn-electric why-cta-btn">
+              <span>START A PROJECT</span>
+              <span class="btn-arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 9: TECHNOLOGY MARQUEE 2 ==================== -->
+    <div class="ticker-band ticker-band-dark" aria-label="Technology Stack Ribbon">
+      <div class="ticker-track">
+        <div class="ticker-item">NEXT.JS <span class="ticker-node">◆</span> REACT <span class="ticker-node">◆</span> TYPESCRIPT <span class="ticker-node">◆</span> SUPABASE <span class="ticker-node">◆</span> POSTGRESQL <span class="ticker-node">◆</span> NODE.JS <span class="ticker-node">◆</span> DOCKER <span class="ticker-node">◆</span> KUBERNETES <span class="ticker-node">◆</span> AUTOMATION <span class="ticker-node">◆</span> AI</div>
+        <div class="ticker-item">NEXT.JS <span class="ticker-node">◆</span> REACT <span class="ticker-node">◆</span> TYPESCRIPT <span class="ticker-node">◆</span> SUPABASE <span class="ticker-node">◆</span> POSTGRESQL <span class="ticker-node">◆</span> NODE.JS <span class="ticker-node">◆</span> DOCKER <span class="ticker-node">◆</span> KUBERNETES <span class="ticker-node">◆</span> AUTOMATION <span class="ticker-node">◆</span> AI</div>
+        <div class="ticker-item">NEXT.JS <span class="ticker-node">◆</span> REACT <span class="ticker-node">◆</span> TYPESCRIPT <span class="ticker-node">◆</span> SUPABASE <span class="ticker-node">◆</span> POSTGRESQL <span class="ticker-node">◆</span> NODE.JS <span class="ticker-node">◆</span> DOCKER <span class="ticker-node">◆</span> KUBERNETES <span class="ticker-node">◆</span> AUTOMATION <span class="ticker-node">◆</span> AI</div>
+        <div class="ticker-item">NEXT.JS <span class="ticker-node">◆</span> REACT <span class="ticker-node">◆</span> TYPESCRIPT <span class="ticker-node">◆</span> SUPABASE <span class="ticker-node">◆</span> POSTGRESQL <span class="ticker-node">◆</span> NODE.JS <span class="ticker-node">◆</span> DOCKER <span class="ticker-node">◆</span> KUBERNETES <span class="ticker-node">◆</span> AUTOMATION <span class="ticker-node">◆</span> AI</div>
+      </div>
+    </div>
+
+    <!-- ==================== SECTION 10: ABOUT CJ TECH ==================== -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="about-editorial-layout">
+          <!-- Left Column: Studio Label, Massive Heading & Architectural Accent Line -->
+          <div class="about-headline-col">
+            <div class="studio-badge">
+              <span class="badge-dot"></span>
+              <span>ABOUT CJ TECH</span>
+            </div>
+            
+            <h2 class="about-studio-heading">
+              WE TURN IDEAS<br />
+              INTO USEFUL<br />
+              <span class="about-heading-gradient">DIGITAL PRODUCTS.</span>
+            </h2>
+
+            <!-- Thin Animated Architectural Accent Line -->
+            <div class="about-accent-rule" aria-hidden="true">
+              <div class="about-accent-pulse"></div>
+            </div>
+
+            <!-- Studio Meta Indicator -->
+            <div class="about-meta-indicator">
+              <span class="meta-dot" aria-hidden="true"></span>
+              <span class="meta-text">INDEPENDENT DIGITAL STUDIO</span>
+            </div>
+          </div>
+
+          <!-- Right Column: Narrative Prose & Capability Sequence -->
+          <div class="about-narrative-col">
+            <div class="about-prose-block">
+              <p class="about-paragraph-lead">
+                CJ Tech helps businesses move from an idea to a working digital solution—from websites and web applications to mobile experiences, automation and future-ready technology.
+              </p>
+              <p class="about-paragraph-sub">
+                We combine practical development, modern tools and AI-assisted workflows to build solutions that are clear, useful and designed around the actual needs of each business.
+              </p>
+            </div>
+
+            <!-- Small Capability List -->
+            <div class="about-capabilities-wrap">
+              <div class="capabilities-header">
+                <span class="capabilities-title">CORE CAPABILITIES</span>
+                <span class="capabilities-line" aria-hidden="true"></span>
+              </div>
+
+              <div class="about-capability-list" role="list">
+                <!-- 01 -->
+                <div class="about-capability-row cap-accent-blue" role="listitem">
+                  <div class="cap-indicator-rail" aria-hidden="true"></div>
+                  <span class="cap-number">01</span>
+                  <span class="cap-name">WEB DEVELOPMENT</span>
+                  <span class="cap-arrow" aria-hidden="true">→</span>
+                </div>
+
+                <!-- 02 -->
+                <div class="about-capability-row cap-accent-violet" role="listitem">
+                  <div class="cap-indicator-rail" aria-hidden="true"></div>
+                  <span class="cap-number">02</span>
+                  <span class="cap-name">WEB APPLICATIONS</span>
+                  <span class="cap-arrow" aria-hidden="true">→</span>
+                </div>
+
+                <!-- 03 -->
+                <div class="about-capability-row cap-accent-cyan" role="listitem">
+                  <div class="cap-indicator-rail" aria-hidden="true"></div>
+                  <span class="cap-number">03</span>
+                  <span class="cap-name">MOBILE EXPERIENCES</span>
+                  <span class="cap-arrow" aria-hidden="true">→</span>
+                </div>
+
+                <!-- 04 -->
+                <div class="about-capability-row cap-accent-magenta" role="listitem">
+                  <div class="cap-indicator-rail" aria-hidden="true"></div>
+                  <span class="cap-number">04</span>
+                  <span class="cap-name">AUTOMATION</span>
+                  <span class="cap-arrow" aria-hidden="true">→</span>
+                </div>
+
+                <!-- 05 -->
+                <div class="about-capability-row cap-accent-electric" role="listitem">
+                  <div class="cap-indicator-rail" aria-hidden="true"></div>
+                  <span class="cap-number">05</span>
+                  <span class="cap-name">PRODUCT SUPPORT</span>
+                  <span class="cap-arrow" aria-hidden="true">→</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 11: BIG RADIANT CTA & INQUIRY FORM ==================== -->
+    <section class="section cta-radiant-section" id="contact">
+      <div class="container cta-grid-2col">
+        <div>
+          <div class="studio-badge">
+            <span class="badge-dot"></span>
+            <span>START A CONVERSATION</span>
+          </div>
+          <h2 class="cta-headline">
+            HAVE AN IDEA?<br />
+            <span class="text-gradient-electric">LET'S BUILD IT.</span>
+          </h2>
+          <p class="cta-subhead">
+            Tell us what you're trying to build. We'll figure out the architecture, timeline, and technology.
+          </p>
+
+          <div style="display: flex; gap: 1rem; align-items: center; margin-top: 2rem;">
+            <a href="/contact" class="btn btn-electric">
+              <span>Start a Project</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Dedicated Project Intake Launch Card -->
+        <div class="inquiry-form-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="studio-badge" style="margin-bottom: 1.25rem;">
+              <span class="badge-dot"></span>
+              <span>PROJECT INTAKE OPEN</span>
+            </div>
+            <h3 style="font-size: 1.75rem; font-weight: 800; color: #FFFFFF; line-height: 1.25; margin-bottom: 1rem;">
+              Ready to build something exceptional?
+            </h3>
+            <p style="color: #94A3B8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+              Share your project vision, target timeline, and budget. We review every brief personally and respond within 24 hours with an architectural breakdown.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem;">
+              <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 0.88rem; color: #E2E8F0;">
+                <span style="color: #06B6D4; font-weight: bold;">✓</span> 24-Hour Technical & Architecture Review
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 0.88rem; color: #E2E8F0;">
+                <span style="color: #06B6D4; font-weight: bold;">✓</span> Fixed-Scope Milestones & Transparent Estimates
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.75rem; font-size: 0.88rem; color: #E2E8F0;">
+                <span style="color: #06B6D4; font-weight: bold;">✓</span> Direct Communication with Lead Engineers
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <a href="/contact" class="btn btn-electric" style="width: 100%; justify-content: center; padding: 1rem 1.75rem; font-size: 1rem;">
+              <span>Start a Project</span>
+              <span>→</span>
+            </a>
+            <div style="text-align: center; margin-top: 0.75rem; font-size: 0.82rem; color: #94A3B8;">
+              WhatsApp: <a href="https://wa.me/919361628990" target="_blank" rel="noopener noreferrer" style="color: #38BDF8; text-decoration: underline; font-weight: 600;">+91 93616 28990</a> (24/7)
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== SECTION 12: FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <a href="#home" class="brand-lockup" aria-label="CJ TECH Home">
+          <img src="cj-tech-monogram.png" alt="CJ TECH Monogram" class="brand-monogram-img" width="38" height="33" />
+          <div class="brand-typography">
+            <div class="brand-wordmark">
+              <span class="wordmark-cj">CJ</span>
+              <span class="wordmark-tech">TECH</span>
+            </div>
+            <span class="brand-descriptor">SOFTWARE • WEB • AUTOMATION</span>
+          </div>
+        </a>
+
+        <ul class="footer-nav-list">
+          <li><a href="#work" class="footer-link">Work</a></li>
+          <li><a href="#services" class="footer-link">Services</a></li>
+          <li><a href="#process" class="footer-link">Process</a></li>
+          <li><a href="#about" class="footer-link">About</a></li>
+          <li><a href="/contact" class="footer-link">Contact</a></li>
+          <li><a href="https://wa.me/919361628990" target="_blank" rel="noopener noreferrer" class="footer-link" style="color: #38BDF8;">WhatsApp</a></li>
+          <li><a href="https://www.instagram.com/cjtech_web" target="_blank" rel="noopener noreferrer" class="footer-link" style="color: #EC4899;">Instagram</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span>© 2026 CJ Tech. All rights reserved.</span>
+        <span>CHENNAI, INDIA · SERVING WORLDWIDE · 24/7</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== CASE STUDY MODAL INSPECTION COMPONENT ==================== -->
+  <div class="modal-backdrop" id="project-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <div id="modal-badge" class="studio-badge" style="margin-bottom: 0.5rem;">
+            <span class="badge-dot"></span>
+            <span>PRODUCTION</span>
+          </div>
+          <h3 id="modal-title" style="font-size: 1.5rem; font-weight: 800; color: #FFFFFF;">VELORA CASE STUDY</h3>
+        </div>
+        <button class="modal-close-btn" id="modal-close" aria-label="Close case study details">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body" id="modal-content">
+        <!-- Injected via script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Studio Script Bundle -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>
