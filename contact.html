@@ -83,7 +83,11 @@
           <span class="brand-descriptor">SOFTWARE • WEB • AUTOMATION</span>
         </div>
       </a>
-      <button class="mobile-drawer-close" id="drawer-close" aria-label="Close navigation menu">✕</button>
+      <button class="mobile-drawer-close hamburger is-active" id="drawer-close" aria-label="Close navigation menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
     </div>
     <ul class="mobile-menu-links">
       <li><a href="/#work" class="mobile-nav-link">Work</a></li>
@@ -151,7 +155,7 @@
           </div>
 
           <!-- Direct WhatsApp & Phone CTAs -->
-          <div style="margin-top: 1.75rem; display: flex; flex-wrap: wrap; gap: 0.85rem; align-items: center;">
+          <div class="contact-direct-actions" style="margin-top: 1.75rem; display: flex; flex-wrap: wrap; gap: 0.85rem; align-items: center;">
             <a href="https://wa.me/919361628990" target="_blank" rel="noopener noreferrer" class="btn btn-electric" style="display: inline-flex; align-items: center; gap: 0.5rem;">
               <span>Chat on WhatsApp</span>
               <span>→</span>
@@ -251,8 +255,24 @@
                   <label for="field-service" class="field-label">
                     Service <span class="required-star">*</span>
                   </label>
-                  <div class="custom-select-wrapper">
-                    <select id="field-service" name="service" class="studio-select" required>
+                  <div class="custom-select-wrapper" id="wrapper-service">
+                    <button type="button" class="custom-select-trigger" id="trigger-service" aria-haspopup="listbox" aria-expanded="false" aria-controls="dropdown-service">
+                      <span class="custom-select-value is-placeholder" id="value-service">Select a service</span>
+                      <span class="custom-select-arrow" aria-hidden="true">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                      </span>
+                    </button>
+                    <ul class="custom-select-dropdown" id="dropdown-service" role="listbox" aria-label="Select a service">
+                      <li class="custom-select-option" data-value="Website Development" role="option">Website Development</li>
+                      <li class="custom-select-option" data-value="Web Application" role="option">Web Application</li>
+                      <li class="custom-select-option" data-value="Mobile Application" role="option">Mobile Application</li>
+                      <li class="custom-select-option" data-value="Business Automation" role="option">Business Automation</li>
+                      <li class="custom-select-option" data-value="AI Solution" role="option">AI Solution</li>
+                      <li class="custom-select-option" data-value="Other" role="option">Other</li>
+                    </ul>
+                    <select id="field-service" name="service" class="studio-select native-select-hidden" required tabindex="-1" aria-hidden="true">
                       <option value="" disabled selected>Select a service</option>
                       <option value="Website Development">Website Development</option>
                       <option value="Web Application">Web Application</option>
@@ -269,8 +289,23 @@
                   <label for="field-budget" class="field-label">
                     Budget <span class="optional-tag">(Optional)</span>
                   </label>
-                  <div class="custom-select-wrapper">
-                    <select id="field-budget" name="budget" class="studio-select">
+                  <div class="custom-select-wrapper" id="wrapper-budget">
+                    <button type="button" class="custom-select-trigger" id="trigger-budget" aria-haspopup="listbox" aria-expanded="false" aria-controls="dropdown-budget">
+                      <span class="custom-select-value" id="value-budget">Not sure yet</span>
+                      <span class="custom-select-arrow" aria-hidden="true">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                      </span>
+                    </button>
+                    <ul class="custom-select-dropdown" id="dropdown-budget" role="listbox" aria-label="Select budget">
+                      <li class="custom-select-option is-selected" data-value="Not sure yet" role="option">Not sure yet</li>
+                      <li class="custom-select-option" data-value="Under ₹25,000" role="option">Under ₹25,000</li>
+                      <li class="custom-select-option" data-value="₹25,000 – ₹50,000" role="option">₹25,000 – ₹50,000</li>
+                      <li class="custom-select-option" data-value="₹50,000 – ₹1,00,000" role="option">₹50,000 – ₹1,00,000</li>
+                      <li class="custom-select-option" data-value="₹1,00,000+" role="option">₹1,00,000+</li>
+                    </ul>
+                    <select id="field-budget" name="budget" class="studio-select native-select-hidden" tabindex="-1" aria-hidden="true">
                       <option value="Not sure yet" selected>Not sure yet</option>
                       <option value="Under ₹25,000">Under ₹25,000</option>
                       <option value="₹25,000 – ₹50,000">₹25,000 – ₹50,000</option>

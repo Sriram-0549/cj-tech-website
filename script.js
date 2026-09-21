@@ -3,11 +3,12 @@
  * Interactive Client Logic, Cursor Physics, Parallax, Modal & Project Inquiry Handlers
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+function initCJTech() {
   // 1. Mobile Navigation Drawer Handlers
   const mobileToggle = document.getElementById('mobile-toggle');
   const mobileDrawer = document.getElementById('mobile-drawer');
   const drawerOverlay = document.getElementById('drawer-overlay');
+  const drawerClose = document.getElementById('drawer-close');
   const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
   function openDrawer() {
@@ -36,29 +37,67 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   }
 
+  function handleToggle(e) {
+    if (e) {
+      e.stopPropagation();
+      if (e.cancelable && e.type === 'touchend') e.preventDefault();
+    }
+    const isOpen = mobileDrawer && mobileDrawer.classList.contains('is-open');
+    if (isOpen) {
+      closeDrawer();
+    } else {
+      openDrawer();
+    }
+  }
+
+  function handleClose(e) {
+    if (e) {
+      e.stopPropagation();
+      if (e.cancelable && e.type === 'touchend') e.preventDefault();
+    }
+    closeDrawer();
+  }
+
   if (mobileToggle) {
-    mobileToggle.addEventListener('click', () => {
-      const isOpen = mobileDrawer.classList.contains('is-open');
-      if (isOpen) {
-        closeDrawer();
-      } else {
-        openDrawer();
-      }
-    });
+    mobileToggle.addEventListener('click', handleToggle);
+    mobileToggle.addEventListener('touchend', handleToggle);
   }
 
   if (drawerOverlay) {
-    drawerOverlay.addEventListener('click', closeDrawer);
+    drawerOverlay.addEventListener('click', handleClose);
+    drawerOverlay.addEventListener('touchend', handleClose);
   }
 
-  const drawerClose = document.getElementById('drawer-close');
   if (drawerClose) {
-    drawerClose.addEventListener('click', closeDrawer);
+    drawerClose.addEventListener('click', handleClose);
+    drawerClose.addEventListener('touchend', handleClose);
   }
 
   mobileNavLinks.forEach(link => {
-    link.addEventListener('click', closeDrawer);
+    link.addEventListener('click', handleClose);
+    link.addEventListener('touchend', handleClose);
   });
+
+  // Tapping outside drawer to close
+  document.addEventListener('click', (e) => {
+    if (mobileDrawer && mobileDrawer.classList.contains('is-open')) {
+      if (!mobileDrawer.contains(e.target) && mobileToggle && !mobileToggle.contains(e.target)) {
+        closeDrawer();
+      }
+    }
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileDrawer && mobileDrawer.classList.contains('is-open')) {
+      closeDrawer();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && mobileDrawer && mobileDrawer.classList.contains('is-open')) {
+      closeDrawer();
+    }
+  }, { passive: true });
 
   // 2. Header Scroll Blur & Shadow
   const siteHeader = document.getElementById('header');
@@ -310,21 +349,134 @@ document.addEventListener('DOMContentLoaded', () => {
     const errorService = document.getElementById('error-service');
     const errorMessage = document.getElementById('error-message');
 
+    // Custom Dropdown Controller for Service & Budget
+    function setupCustomSelect(wrapperId, triggerId, valueId, dropdownId, selectEl, errorEl) {
+      const wrapper = document.getElementById(wrapperId);
+      const trigger = document.getElementById(triggerId);
+      const valueSpan = document.getElementById(valueId);
+      const dropdown = document.getElementById(dropdownId);
+      if (!wrapper || !trigger || !valueSpan || !dropdown || !selectEl) return null;
+
+      function openSelect() {
+        document.querySelectorAll('.custom-select-wrapper.is-open').forEach(w => {
+          if (w !== wrapper) {
+            w.classList.remove('is-open');
+            const trig = w.querySelector('.custom-select-trigger');
+            if (trig) trig.setAttribute('aria-expanded', 'false');
+          }
+        });
+        wrapper.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeSelect() {
+        wrapper.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+      }
+
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (wrapper.classList.contains('is-open')) {
+          closeSelect();
+        } else {
+          openSelect();
+        }
+      });
+
+      const options = dropdown.querySelectorAll('.custom-select-option');
+      options.forEach(opt => {
+        opt.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const val = opt.getAttribute('data-value') || '';
+          selectEl.value = val;
+          valueSpan.textContent = opt.textContent.replace('✓', '').trim();
+          valueSpan.classList.remove('is-placeholder');
+          trigger.classList.remove('is-invalid');
+          if (errorEl) errorEl.textContent = '';
+
+          options.forEach(o => o.classList.remove('is-selected'));
+          opt.classList.add('is-selected');
+
+          closeSelect();
+          selectEl.dispatchEvent(new Event('change', { bubbles: true }));
+        });
+      });
+
+      // Synchronize trigger when select changes
+      selectEl.addEventListener('change', () => {
+        const currentVal = selectEl.value;
+        if (!currentVal) {
+          valueSpan.textContent = selectEl.options[0]?.textContent || 'Select a service';
+          valueSpan.classList.add('is-placeholder');
+          options.forEach(o => o.classList.remove('is-selected'));
+        } else {
+          options.forEach(o => {
+            if (o.getAttribute('data-value') === currentVal) {
+              o.classList.add('is-selected');
+              valueSpan.textContent = o.textContent.replace('✓', '').trim();
+              valueSpan.classList.remove('is-placeholder');
+            } else {
+              o.classList.remove('is-selected');
+            }
+          });
+        }
+      });
+
+      return { trigger, closeSelect };
+    }
+
+    const serviceCustom = setupCustomSelect('wrapper-service', 'trigger-service', 'value-service', 'dropdown-service', serviceSelect, errorService);
+    const budgetCustom = setupCustomSelect('wrapper-budget', 'trigger-budget', 'value-budget', 'dropdown-budget', budgetSelect, null);
+
+    // Close custom selects on outside tap or Escape
+    document.addEventListener('click', (e) => {
+      document.querySelectorAll('.custom-select-wrapper.is-open').forEach(w => {
+        if (!w.contains(e.target)) {
+          w.classList.remove('is-open');
+          const trig = w.querySelector('.custom-select-trigger');
+          if (trig) trig.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.custom-select-wrapper.is-open').forEach(w => {
+          w.classList.remove('is-open');
+          const trig = w.querySelector('.custom-select-trigger');
+          if (trig) trig.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+
     function clearErrors() {
       [nameInput, emailInput, phoneInput, serviceSelect, messageInput].forEach(el => {
         if (el) el.classList.remove('is-invalid');
       });
+      if (serviceCustom && serviceCustom.trigger) serviceCustom.trigger.classList.remove('is-invalid');
+      if (budgetCustom && budgetCustom.trigger) budgetCustom.trigger.classList.remove('is-invalid');
       [errorName, errorEmail, errorPhone, errorService, errorMessage].forEach(el => {
         if (el) el.textContent = '';
       });
       if (formAlert) formAlert.style.display = 'none';
     }
 
-    // Clear individual field errors on input
+    // Clear individual field errors on input & sync state
     if (nameInput) nameInput.addEventListener('input', () => { nameInput.classList.remove('is-invalid'); if (errorName) errorName.textContent = ''; });
     if (emailInput) emailInput.addEventListener('input', () => { emailInput.classList.remove('is-invalid'); if (errorEmail) errorEmail.textContent = ''; });
     if (phoneInput) phoneInput.addEventListener('input', () => { phoneInput.classList.remove('is-invalid'); if (errorPhone) errorPhone.textContent = ''; });
-    if (serviceSelect) serviceSelect.addEventListener('change', () => { serviceSelect.classList.remove('is-invalid'); if (errorService) errorService.textContent = ''; });
+    if (serviceSelect) {
+      serviceSelect.addEventListener('change', () => {
+        serviceSelect.classList.remove('is-invalid');
+        if (serviceCustom && serviceCustom.trigger) serviceCustom.trigger.classList.remove('is-invalid');
+        if (errorService) errorService.textContent = '';
+      });
+    }
+    if (budgetSelect) {
+      budgetSelect.addEventListener('change', () => {
+        if (budgetCustom && budgetCustom.trigger) budgetCustom.trigger.classList.remove('is-invalid');
+      });
+    }
     if (messageInput) messageInput.addEventListener('input', () => { messageInput.classList.remove('is-invalid'); if (errorMessage) errorMessage.textContent = ''; });
 
     inquiryForm.addEventListener('submit', async (e) => {
@@ -370,6 +522,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // 4. Validate Service
       if (serviceSelect && !service) {
         serviceSelect.classList.add('is-invalid');
+        if (serviceCustom && serviceCustom.trigger) serviceCustom.trigger.classList.add('is-invalid');
         if (errorService) errorService.textContent = 'Please select a service.';
         hasError = true;
       }
@@ -444,4 +597,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-});
+}
+
+// Run init whether DOM is still loading or already parsed
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initCJTech);
+} else {
+  initCJTech();
+}
