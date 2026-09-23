@@ -1100,10 +1100,10 @@
         <!-- Interactive Conversion-Optimized Intake Form Card -->
         <div class="inquiry-form-card" id="contact-form-container">
           
-          <!-- Alert Message Box (Hidden by default) -->
-          <div class="form-alert-banner" id="form-alert" role="alert" style="display: none;">
-            <span class="alert-icon" id="alert-icon">⚠️</span>
-            <span class="alert-text" id="alert-text">Please check your inputs and try again.</span>
+          <!-- Alert Message Box (Strictly conditionally rendered via state hook) -->
+          <div class="form-alert-banner" id="form-alert" role="alert" hidden style="display: none !important;">
+            <span class="alert-icon" id="alert-icon" aria-hidden="true">⚠️</span>
+            <span class="alert-text" id="alert-text"></span>
           </div>
 
           <form id="project-inquiry-form" class="inquiry-form-element" novalidate>

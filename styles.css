@@ -3627,9 +3627,17 @@ body.cursor-hover .cursor-outline {
   100% { transform: rotate(360deg); }
 }
 
-/* Alert Banner */
+/* Alert Banner (Hidden by default; conditionally rendered via state) */
 .form-alert-banner {
-  display: flex;
+  display: none !important;
+}
+
+.form-alert-banner[hidden] {
+  display: none !important;
+}
+
+.form-alert-banner.is-visible {
+  display: flex !important;
   align-items: center;
   gap: 0.75rem;
   background: rgba(236, 72, 153, 0.12);

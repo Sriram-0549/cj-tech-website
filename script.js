@@ -480,7 +480,32 @@ function initCJTech() {
       }
     });
 
+    // Reactive State Hook Architecture for Form Validation State
+    // Mirrors: const [formError, setFormError] = useState<string | null>(null);
+    let formError = null;
+
+    function setFormError(errorMessage) {
+      formError = errorMessage;
+      if (!formAlert || !alertText) return;
+
+      if (formError) {
+        alertText.textContent = formError;
+        formAlert.removeAttribute('hidden');
+        formAlert.classList.add('is-visible');
+        formAlert.style.setProperty('display', 'flex', 'important');
+      } else {
+        alertText.textContent = '';
+        formAlert.setAttribute('hidden', '');
+        formAlert.classList.remove('is-visible');
+        formAlert.style.setProperty('display', 'none', 'important');
+      }
+    }
+
+    // Ensure initial state is strictly null (hidden) on page load
+    setFormError(null);
+
     function clearErrors() {
+      setFormError(null);
       [nameInput, emailInput, phoneInput, websiteInput, companyInput, serviceSelect, messageInput].forEach(el => {
         if (el) el.classList.remove('is-invalid');
       });
@@ -489,18 +514,18 @@ function initCJTech() {
       [errorName, errorEmail, errorPhone, errorWebsite, errorService, errorMessage].forEach(el => {
         if (el) el.textContent = '';
       });
-      if (formAlert) formAlert.style.display = 'none';
     }
 
     // Clear individual field errors on input & sync state
-    if (nameInput) nameInput.addEventListener('input', () => { nameInput.classList.remove('is-invalid'); if (errorName) errorName.textContent = ''; });
-    if (emailInput) emailInput.addEventListener('input', () => { emailInput.classList.remove('is-invalid'); if (errorEmail) errorEmail.textContent = ''; });
-    if (phoneInput) phoneInput.addEventListener('input', () => { phoneInput.classList.remove('is-invalid'); if (errorPhone) errorPhone.textContent = ''; });
-    if (websiteInput) websiteInput.addEventListener('input', () => { websiteInput.classList.remove('is-invalid'); if (errorWebsite) errorWebsite.textContent = ''; });
-    if (messageInput) messageInput.addEventListener('input', () => { messageInput.classList.remove('is-invalid'); if (errorMessage) errorMessage.textContent = ''; });
+    if (nameInput) nameInput.addEventListener('input', () => { nameInput.classList.remove('is-invalid'); if (errorName) errorName.textContent = ''; setFormError(null); });
+    if (emailInput) emailInput.addEventListener('input', () => { emailInput.classList.remove('is-invalid'); if (errorEmail) errorEmail.textContent = ''; setFormError(null); });
+    if (phoneInput) phoneInput.addEventListener('input', () => { phoneInput.classList.remove('is-invalid'); if (errorPhone) errorPhone.textContent = ''; setFormError(null); });
+    if (websiteInput) websiteInput.addEventListener('input', () => { websiteInput.classList.remove('is-invalid'); if (errorWebsite) errorWebsite.textContent = ''; setFormError(null); });
+    if (messageInput) messageInput.addEventListener('input', () => { messageInput.classList.remove('is-invalid'); if (errorMessage) errorMessage.textContent = ''; setFormError(null); });
 
     inquiryForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      setFormError(null);
       clearErrors();
 
       const name = nameInput ? nameInput.value.trim() : '';
@@ -546,10 +571,7 @@ function initCJTech() {
       }
 
       if (hasError) {
-        if (formAlert && alertText) {
-          alertText.textContent = 'Please fill in all required fields marked with an asterisk (*).';
-          formAlert.style.display = 'flex';
-        }
+        setFormError('Please check your inputs and try again.');
         return;
       }
 
@@ -580,7 +602,8 @@ function initCJTech() {
         const result = await response.json().catch(() => ({}));
 
         if (response.ok && result.success) {
-          // Success State Transition
+          // Clear error state and toggle success screen block
+          setFormError(null);
           inquiryForm.style.display = 'none';
           if (successCard) {
             successCard.style.display = 'flex';
@@ -597,12 +620,7 @@ function initCJTech() {
         }
       } catch (err) {
         console.error('Contact submission error:', err);
-        if (formAlert && alertText) {
-          alertText.textContent = err.message || 'Something went wrong. Please check your connection or reach us on WhatsApp.';
-          formAlert.style.display = 'flex';
-        } else {
-          alert(err.message || 'Something went wrong. Please reach us on WhatsApp.');
-        }
+        setFormError(err.message || 'Please check your inputs and try again.');
         if (submitButton) submitButton.disabled = false;
         if (submitText) submitText.textContent = 'CLAIM YOUR FREE 24-HOUR PROTOTYPE →';
         if (submitSpinner) submitSpinner.style.display = 'none';
