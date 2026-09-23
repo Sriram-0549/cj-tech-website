@@ -35,13 +35,15 @@ export default async function handler(req, res) {
 
   try {
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
-    const { name, company, email, phone, service, budget, message } = body;
+    const { name, company, website, email, phone, service, budget, message } = body;
 
     // 1. Validation
     const trimmedName = typeof name === 'string' ? name.trim() : '';
     const trimmedEmail = typeof email === 'string' ? email.trim() : '';
     const trimmedPhone = typeof phone === 'string' ? phone.trim() : '';
-    const trimmedService = typeof service === 'string' ? service.trim() : '';
+    const trimmedCompany = (typeof company === 'string' && company.trim()) || (typeof website === 'string' ? website.trim() : '');
+    const trimmedService = (typeof service === 'string' && service.trim()) || 'Core Accelerator (₹4,999/mo) / Free Prototype';
+    const trimmedBudget = (typeof budget === 'string' && budget.trim()) || 'Flat Rate / Zero Upfront';
     const trimmedMessage = typeof message === 'string' ? message.trim() : '';
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -60,12 +62,8 @@ export default async function handler(req, res) {
       }
     }
 
-    if (!trimmedService) {
-      return res.status(400).json({ success: false, error: 'Please select a service.' });
-    }
-
-    if (!trimmedMessage || trimmedMessage.length < 5) {
-      return res.status(400).json({ success: false, error: 'Please provide brief details about your project.' });
+    if (!trimmedMessage || trimmedMessage.length < 3) {
+      return res.status(400).json({ success: false, error: 'Please provide brief details about what your business sells or offers.' });
     }
 
     // 2. Prevent Double-Click / Duplicate Submissions
@@ -79,11 +77,11 @@ export default async function handler(req, res) {
 
     const inquiryRecord = {
       name: trimmedName,
-      company: typeof company === 'string' ? company.trim() : '',
+      company: trimmedCompany,
       email: trimmedEmail,
       phone: trimmedPhone,
       service: trimmedService,
-      budget: typeof budget === 'string' ? budget.trim() : 'Not sure yet',
+      budget: trimmedBudget,
       message: trimmedMessage,
       status: 'new',
       created_at: new Date().toISOString()

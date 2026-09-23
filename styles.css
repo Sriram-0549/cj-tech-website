@@ -5869,3 +5869,666 @@ body.cursor-hover .cursor-outline {
     scroll-behavior: auto !important;
   }
 }
+
+
+/* ==========================================================================
+   CRO & PRODUCTIZED PRICING EXTENSIONS (Monochromatic Dark Theme)
+   ========================================================================== */
+
+/* Hero Trust Metrics Bar */
+.hero-trust-bar {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  font-size: 0.85rem;
+  color: var(--c-dark-muted);
+}
+
+.trust-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #CBD5E1;
+}
+
+.trust-pill strong {
+  color: var(--c-white);
+  font-weight: 700;
+}
+
+.trust-divider {
+  color: rgba(255, 255, 255, 0.2);
+  user-select: none;
+}
+
+/* --- SECTION 4.5: PRODUCTIZED SERVICES & SUBSCRIPTION PRICING --- */
+.pricing-section {
+  background-color: var(--c-primary-dark);
+  position: relative;
+  overflow: hidden;
+  padding: 6.5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.pricing-section::before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 750px;
+  height: 450px;
+  background: radial-gradient(ellipse at center, rgba(37, 99, 255, 0.08) 0%, rgba(124, 58, 237, 0.05) 45%, transparent 70%);
+  pointer-events: none;
+  filter: blur(60px);
+}
+
+.pricing-head-wrap {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.pricing-head-wrap .studio-badge {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pricing-subhead-text {
+  margin: 0 auto;
+  color: var(--c-dark-muted);
+  font-size: 1.15rem;
+  line-height: 1.65;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  align-items: stretch;
+  position: relative;
+  z-index: 2;
+}
+
+.pricing-card {
+  background: rgba(22, 23, 31, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 2.75rem 2.25rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  position: relative;
+  transition: transform var(--trans-smooth), border-color var(--trans-smooth), box-shadow var(--trans-smooth);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.pricing-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(37, 99, 255, 0.35);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(37, 99, 255, 0.12);
+}
+
+.pricing-card-featured {
+  background: rgba(24, 25, 36, 0.95);
+  border: 1.5px solid rgba(37, 99, 255, 0.6);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 35px rgba(37, 99, 255, 0.22);
+}
+
+.pricing-card-featured:hover {
+  border-color: rgba(34, 211, 238, 0.7);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 45px rgba(37, 99, 255, 0.3);
+}
+
+.pricing-badge-popular {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--grad-blue-violet);
+  color: var(--c-white);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 15px rgba(37, 99, 255, 0.4);
+  white-space: nowrap;
+}
+
+.pricing-plan-name {
+  font-family: var(--font-main);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--c-white);
+  margin-bottom: 0.6rem;
+}
+
+.pricing-plan-subtext {
+  font-size: 0.92rem;
+  color: var(--c-dark-muted);
+  line-height: 1.6;
+  min-height: 52px;
+}
+
+.pricing-cost-row {
+  margin: 1.5rem 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.pricing-amount {
+  font-family: var(--font-mono);
+  font-size: 2.35rem;
+  font-weight: 800;
+  color: var(--c-white);
+  letter-spacing: -0.03em;
+  display: flex;
+  align-items: baseline;
+  gap: 0.2rem;
+}
+
+.pricing-currency {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--c-cyan);
+}
+
+.pricing-period {
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #64748B;
+  letter-spacing: 0;
+  margin-left: 0.35rem;
+}
+
+.pricing-global-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--c-cyan);
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid rgba(34, 211, 238, 0.22);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  width: fit-content;
+}
+
+.pricing-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 1.5rem 0 1.75rem;
+}
+
+.pricing-feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2.25rem;
+  flex: 1;
+}
+
+.pricing-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #CBD5E1;
+}
+
+.pricing-feature-item strong {
+  color: var(--c-white);
+}
+
+.feature-check {
+  color: var(--c-cyan);
+  font-weight: 800;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pricing-card-footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-cta-btn {
+  width: 100%;
+  justify-content: center;
+  padding: 0.95rem 1.5rem;
+  font-size: 0.925rem;
+  letter-spacing: 0.02em;
+}
+
+.pricing-card-guarantee {
+  text-align: center;
+  font-size: 0.74rem;
+  color: #64748B;
+  margin-top: 0.85rem;
+}
+
+.pricing-risk-reversal-strip {
+  margin-top: 3.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 1.85rem 2.25rem;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-md);
+  position: relative;
+  z-index: 2;
+}
+
+.risk-reversal-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.risk-icon {
+  font-size: 1.35rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.risk-reversal-item strong {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--c-white);
+  margin-bottom: 0.25rem;
+}
+
+.risk-reversal-item p {
+  font-size: 0.82rem;
+  color: var(--c-dark-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Section 11 Trust Checklist & Intake Enhancements */
+.cta-trust-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.trust-check-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  color: #E2E8F0;
+}
+
+.check-icon {
+  color: var(--c-cyan);
+  font-weight: bold;
+}
+
+.inquiry-form-element {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+/* Form Status Alerts */
+.form-status-alert {
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-top: 1rem;
+}
+
+.form-status-alert.status-success {
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  color: #86EFAC;
+}
+
+.form-status-alert.status-error {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #FCA5A5;
+}
+
+/* Responsive Pricing Rules */
+@media (max-width: 1024px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .pricing-risk-reversal-strip {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing-section {
+    padding: 4.5rem 0;
+  }
+  .pricing-head-wrap {
+    margin-bottom: 2.75rem;
+  }
+  .pricing-card {
+    padding: 2.25rem 1.5rem 1.75rem;
+  }
+  .pricing-amount {
+    font-size: 2.1rem;
+  }
+}
+
+/* ==========================================================================
+   CONSOLIDATED SERVICES PILLARS (2 CORE HIGH-LEVERAGE OFFERINGS)
+   ========================================================================== */
+.services-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  width: 100%;
+  margin-bottom: 3.5rem;
+}
+
+.pillar-card {
+  position: relative;
+  background: #11121A;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 3rem 2.5rem;
+  min-height: 480px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  outline: none;
+  transition: 
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s ease;
+}
+
+.pillar-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(37, 99, 255, 0.45);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 35px rgba(37, 99, 255, 0.15);
+}
+
+.pillar-card.pillar-ai:hover {
+  border-color: rgba(124, 58, 237, 0.45);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 35px rgba(124, 58, 237, 0.18);
+}
+
+.pillar-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--c-cyan);
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+}
+
+.pillar-ai .pillar-label {
+  color: #C4B5FD;
+  background: rgba(124, 58, 237, 0.1);
+  border-color: rgba(124, 58, 237, 0.25);
+}
+
+.pillar-capabilities-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem 1.25rem;
+  margin: 1.75rem 0 2rem;
+  padding: 1.25rem 1.35rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-md);
+}
+
+.pillar-cap-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #E2E8F0;
+  line-height: 1.45;
+}
+
+.cap-bullet-icon {
+  color: var(--c-cyan);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.pillar-ai .cap-bullet-icon {
+  color: #A78BFA;
+}
+
+/* ==========================================================================
+   FLOATING WHATSAPP LEAD CAPTURE WIDGET
+   ========================================================================== */
+.floating-whatsapp-wrap {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.floating-whatsapp-btn {
+  pointer-events: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #121c17 0%, #0d1612 100%);
+  border: 1.5px solid rgba(37, 211, 102, 0.5);
+  color: #25D366;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(37, 211, 102, 0.25);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  outline: none;
+}
+
+.floating-whatsapp-btn:hover {
+  transform: translateY(-4px) scale(1.06);
+  border-color: #25D366;
+  color: #25D366;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.7), 0 0 35px rgba(37, 211, 102, 0.45);
+}
+
+.floating-whatsapp-btn:focus-visible {
+  box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.5);
+}
+
+.whatsapp-pulse-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(37, 211, 102, 0.6);
+  animation: waPulse 3s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes waPulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.9;
+  }
+  60% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+.whatsapp-icon-disc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.floating-whatsapp-btn:hover .whatsapp-icon-disc {
+  transform: scale(1.08);
+}
+
+.whatsapp-tooltip {
+  position: absolute;
+  right: calc(100% + 14px);
+  background: rgba(14, 15, 22, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  font-family: var(--font-main);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.whatsapp-tooltip-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #25D366;
+  box-shadow: 0 0 8px #25D366;
+}
+
+.floating-whatsapp-btn:hover .whatsapp-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ==========================================================================
+   MOBILE-FIRST FLUIDITY & SINGLE-COLUMN OVERFLOW REINFORCEMENTS
+   ========================================================================== */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+.ticker-band {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .services-pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .pillar-card {
+    min-height: auto;
+    padding: 2.25rem 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Services Pillars Fluidity on Mobile */
+  .services-pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .pillar-card {
+    padding: 1.85rem 1.25rem;
+    min-height: auto;
+    border-radius: 16px;
+  }
+
+  .pillar-capabilities-list {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 1rem;
+    margin: 1.25rem 0 1.5rem;
+  }
+
+  .pillar-cap-item {
+    font-size: 0.88rem;
+  }
+
+  /* Floating WhatsApp on Mobile */
+  .floating-whatsapp-wrap {
+    bottom: 1.25rem;
+    right: 1.25rem;
+  }
+
+  .floating-whatsapp-btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .floating-whatsapp-btn svg {
+    width: 23px;
+    height: 23px;
+  }
+
+  .whatsapp-tooltip {
+    display: none;
+  }
+
+  /* Global Headings Breakpoint Protection */
+  .hero-headline,
+  .section-title,
+  .intro-headline,
+  .contact-display-headline,
+  .why-large-statement {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Prevent Any Child Box from Causing Horizontal Bleed */
+  .container {
+    max-width: 100%;
+    overflow: hidden;
+  }
+}

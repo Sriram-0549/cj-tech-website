@@ -325,7 +325,37 @@ function initCJTech() {
     });
   }
 
-  // 8. Start a Project Form Handler (/contact & #project-inquiry-form)
+  // 8. High-Velocity Intake Form Handler & Pricing Plan Selectors
+  let currentSelectedPlan = 'The Core Accelerator';
+
+  // Smooth scroll and focus for Hero CTA & Pricing plan CTAs
+  document.querySelectorAll('.pricing-cta-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const plan = btn.getAttribute('data-plan');
+      if (plan) currentSelectedPlan = plan;
+      const target = document.getElementById('contact') || document.getElementById('contact-form-container');
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const nInput = document.getElementById('field-name');
+        if (nInput) setTimeout(() => nInput.focus(), 600);
+      }
+    });
+  });
+
+  const heroCTA = document.getElementById('hero-primary-cta');
+  if (heroCTA) {
+    heroCTA.addEventListener('click', (e) => {
+      const target = document.getElementById('contact') || document.getElementById('contact-form-container');
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const nInput = document.getElementById('field-name');
+        if (nInput) setTimeout(() => nInput.focus(), 600);
+      }
+    });
+  }
+
   const inquiryForm = document.getElementById('project-inquiry-form');
   const formAlert = document.getElementById('form-alert');
   const alertText = document.getElementById('alert-text');
@@ -336,9 +366,10 @@ function initCJTech() {
 
   if (inquiryForm) {
     const nameInput = document.getElementById('field-name') || document.getElementById('contact-name');
-    const companyInput = document.getElementById('field-company') || document.getElementById('contact-company');
     const emailInput = document.getElementById('field-email') || document.getElementById('contact-email');
     const phoneInput = document.getElementById('field-phone');
+    const websiteInput = document.getElementById('field-website');
+    const companyInput = document.getElementById('field-company') || document.getElementById('contact-company');
     const serviceSelect = document.getElementById('field-service');
     const budgetSelect = document.getElementById('field-budget');
     const messageInput = document.getElementById('field-message') || document.getElementById('contact-message');
@@ -346,10 +377,11 @@ function initCJTech() {
     const errorName = document.getElementById('error-name');
     const errorEmail = document.getElementById('error-email');
     const errorPhone = document.getElementById('error-phone');
+    const errorWebsite = document.getElementById('error-website');
     const errorService = document.getElementById('error-service');
     const errorMessage = document.getElementById('error-message');
 
-    // Custom Dropdown Controller for Service & Budget
+    // Custom Dropdown Controller (for backward compatibility if select elements exist)
     function setupCustomSelect(wrapperId, triggerId, valueId, dropdownId, selectEl, errorEl) {
       const wrapper = document.getElementById(wrapperId);
       const trigger = document.getElementById(triggerId);
@@ -402,7 +434,6 @@ function initCJTech() {
         });
       });
 
-      // Synchronize trigger when select changes
       selectEl.addEventListener('change', () => {
         const currentVal = selectEl.value;
         if (!currentVal) {
@@ -450,12 +481,12 @@ function initCJTech() {
     });
 
     function clearErrors() {
-      [nameInput, emailInput, phoneInput, serviceSelect, messageInput].forEach(el => {
+      [nameInput, emailInput, phoneInput, websiteInput, companyInput, serviceSelect, messageInput].forEach(el => {
         if (el) el.classList.remove('is-invalid');
       });
       if (serviceCustom && serviceCustom.trigger) serviceCustom.trigger.classList.remove('is-invalid');
       if (budgetCustom && budgetCustom.trigger) budgetCustom.trigger.classList.remove('is-invalid');
-      [errorName, errorEmail, errorPhone, errorService, errorMessage].forEach(el => {
+      [errorName, errorEmail, errorPhone, errorWebsite, errorService, errorMessage].forEach(el => {
         if (el) el.textContent = '';
       });
       if (formAlert) formAlert.style.display = 'none';
@@ -465,18 +496,7 @@ function initCJTech() {
     if (nameInput) nameInput.addEventListener('input', () => { nameInput.classList.remove('is-invalid'); if (errorName) errorName.textContent = ''; });
     if (emailInput) emailInput.addEventListener('input', () => { emailInput.classList.remove('is-invalid'); if (errorEmail) errorEmail.textContent = ''; });
     if (phoneInput) phoneInput.addEventListener('input', () => { phoneInput.classList.remove('is-invalid'); if (errorPhone) errorPhone.textContent = ''; });
-    if (serviceSelect) {
-      serviceSelect.addEventListener('change', () => {
-        serviceSelect.classList.remove('is-invalid');
-        if (serviceCustom && serviceCustom.trigger) serviceCustom.trigger.classList.remove('is-invalid');
-        if (errorService) errorService.textContent = '';
-      });
-    }
-    if (budgetSelect) {
-      budgetSelect.addEventListener('change', () => {
-        if (budgetCustom && budgetCustom.trigger) budgetCustom.trigger.classList.remove('is-invalid');
-      });
-    }
+    if (websiteInput) websiteInput.addEventListener('input', () => { websiteInput.classList.remove('is-invalid'); if (errorWebsite) errorWebsite.textContent = ''; });
     if (messageInput) messageInput.addEventListener('input', () => { messageInput.classList.remove('is-invalid'); if (errorMessage) errorMessage.textContent = ''; });
 
     inquiryForm.addEventListener('submit', async (e) => {
@@ -484,11 +504,12 @@ function initCJTech() {
       clearErrors();
 
       const name = nameInput ? nameInput.value.trim() : '';
-      const company = companyInput ? companyInput.value.trim() : '';
       const email = emailInput ? emailInput.value.trim() : '';
       const phone = phoneInput ? phoneInput.value.trim() : '';
-      const service = serviceSelect ? serviceSelect.value.trim() : (document.getElementById('contact-timeline')?.value || 'Website Development');
-      const budget = budgetSelect ? budgetSelect.value.trim() : 'Not sure yet';
+      const website = websiteInput ? websiteInput.value.trim() : (companyInput ? companyInput.value.trim() : '');
+      const company = website;
+      const service = (serviceSelect && serviceSelect.value.trim()) || currentSelectedPlan || 'The Core Accelerator';
+      const budget = (budgetSelect && budgetSelect.value.trim()) || 'Flat Rate / Zero Upfront';
       const message = messageInput ? messageInput.value.trim() : '';
 
       let hasError = false;
@@ -508,29 +529,19 @@ function initCJTech() {
         hasError = true;
       }
 
-      // 3. Validate Phone (Optional, but if provided must be sensible: 7 to 15 digits)
-      if (phone) {
-        const cleanDigits = phone.replace(/\D/g, '');
-        const phoneRegex = /^(\+?\d{1,4}[-\s.]?)?(\(?\d{1,5}\)?[-\s.]?)?\d{3,5}[-\s.]?\d{3,5}$/;
-        if (cleanDigits.length < 7 || cleanDigits.length > 15 || !phoneRegex.test(phone)) {
-          if (phoneInput) phoneInput.classList.add('is-invalid');
-          if (errorPhone) errorPhone.textContent = 'Please enter a valid phone number (7-15 digits).';
-          hasError = true;
-        }
-      }
-
-      // 4. Validate Service
-      if (serviceSelect && !service) {
-        serviceSelect.classList.add('is-invalid');
-        if (serviceCustom && serviceCustom.trigger) serviceCustom.trigger.classList.add('is-invalid');
-        if (errorService) errorService.textContent = 'Please select a service.';
+      // 3. Validate WhatsApp / Phone Number
+      const cleanDigits = phone.replace(/\D/g, '');
+      const phoneRegex = /^(\+?\d{1,4}[-\s.]?)?(\(?\d{1,5}\)?[-\s.]?)?\d{3,5}[-\s.]?\d{3,5}$/;
+      if (!phone || cleanDigits.length < 7 || cleanDigits.length > 15 || !phoneRegex.test(phone)) {
+        if (phoneInput) phoneInput.classList.add('is-invalid');
+        if (errorPhone) errorPhone.textContent = 'Please enter a valid WhatsApp number (7-15 digits).';
         hasError = true;
       }
 
-      // 4. Validate Message
-      if (!message || message.length < 5) {
+      // 4. Validate What They Sell / Description
+      if (!message || message.length < 3) {
         if (messageInput) messageInput.classList.add('is-invalid');
-        if (errorMessage) errorMessage.textContent = 'Please provide brief details about your project.';
+        if (errorMessage) errorMessage.textContent = 'Please briefly describe what your business sells or offers.';
         hasError = true;
       }
 
@@ -544,7 +555,7 @@ function initCJTech() {
 
       // UI: Submitting Loading State
       if (submitButton) submitButton.disabled = true;
-      if (submitText) submitText.textContent = 'SENDING...';
+      if (submitText) submitText.textContent = 'DISPATCHING PROTOTYPE REQUEST...';
       if (submitSpinner) submitSpinner.style.display = 'inline-block';
 
       try {
@@ -556,9 +567,10 @@ function initCJTech() {
           },
           body: JSON.stringify({
             name,
-            company,
             email,
             phone,
+            website,
+            company,
             service,
             budget,
             message
@@ -574,25 +586,25 @@ function initCJTech() {
             successCard.style.display = 'flex';
             successCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
           } else {
-            alert('PROJECT REQUEST RECEIVED ✓\n\nThanks for reaching out to CJ Tech. We\'ll review your project details and get back to you soon.');
+            alert('PROTOTYPE REQUEST RECEIVED ✓\n\nThanks for reaching out to CJ Tech. We\'ll analyze your presence and send your 24-hour prototype soon.');
             inquiryForm.reset();
             if (submitButton) submitButton.disabled = false;
-            if (submitText) submitText.textContent = 'SEND PROJECT REQUEST →';
+            if (submitText) submitText.textContent = 'CLAIM YOUR FREE 24-HOUR PROTOTYPE →';
             if (submitSpinner) submitSpinner.style.display = 'none';
           }
         } else {
-          throw new Error(result.error || 'Failed to submit inquiry. Please try again.');
+          throw new Error(result.error || 'Failed to submit request. Please try again or message us on WhatsApp.');
         }
       } catch (err) {
         console.error('Contact submission error:', err);
         if (formAlert && alertText) {
-          alertText.textContent = err.message || 'Something went wrong. Please check your connection and try again.';
+          alertText.textContent = err.message || 'Something went wrong. Please check your connection or reach us on WhatsApp.';
           formAlert.style.display = 'flex';
         } else {
-          alert(err.message || 'Something went wrong. Please try again.');
+          alert(err.message || 'Something went wrong. Please reach us on WhatsApp.');
         }
         if (submitButton) submitButton.disabled = false;
-        if (submitText) submitText.textContent = 'SEND PROJECT REQUEST →';
+        if (submitText) submitText.textContent = 'CLAIM YOUR FREE 24-HOUR PROTOTYPE →';
         if (submitSpinner) submitSpinner.style.display = 'none';
       }
     });
