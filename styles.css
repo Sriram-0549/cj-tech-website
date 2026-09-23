@@ -96,6 +96,7 @@ html {
   line-height: 1.6;
   font-size: 16px;
   scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -627,6 +628,8 @@ body.cursor-hover .cursor-outline {
   gap: 0.5rem;
   margin-top: 1.75rem;
   margin-bottom: auto;
+  position: relative;
+  z-index: 2;
 }
 
 .mobile-nav-link {
@@ -638,17 +641,25 @@ body.cursor-hover .cursor-outline {
   display: flex;
   align-items: center;
   min-height: 48px;
-  padding: 0.4rem 0.5rem;
+  padding: 0.65rem 0.85rem;
   border-radius: var(--radius-sm);
   letter-spacing: 0.04em;
   transition: color var(--trans-fast), transform var(--trans-fast), background var(--trans-fast);
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  position: relative;
+  z-index: 2;
 }
 
 .mobile-nav-link:hover,
+.mobile-nav-link:focus-visible,
 .mobile-nav-link.active {
   color: var(--c-white);
   transform: translateX(4px);
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 /* --- 9. SECTION 1: HERO (Colorful Creative Studio) --- */

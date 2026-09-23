@@ -10,6 +10,7 @@ function initCJTech() {
   const drawerOverlay = document.getElementById('drawer-overlay');
   const drawerClose = document.getElementById('drawer-close');
   const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+  const siteHeader = document.getElementById('header');
 
   function openDrawer() {
     if (!mobileToggle || !mobileDrawer) return;
@@ -37,45 +38,87 @@ function initCJTech() {
     document.body.style.overflow = '';
   }
 
-  function handleToggle(e) {
-    if (e) {
-      e.stopPropagation();
-      if (e.cancelable && e.type === 'touchend') e.preventDefault();
-    }
-    const isOpen = mobileDrawer && mobileDrawer.classList.contains('is-open');
-    if (isOpen) {
-      closeDrawer();
+  // Smooth anchor scrolling helper with header offset compensation
+  function scrollToSection(targetId) {
+    const targetElement = document.getElementById(targetId);
+    if (!targetElement) return;
+
+    const headerOffset = siteHeader ? siteHeader.offsetHeight : 70;
+    const elementPosition = targetElement.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+    window.scrollTo({
+      top: Math.max(0, Math.round(offsetPosition)),
+      behavior: 'smooth'
+    });
+
+    if (history.pushState) {
+      history.pushState(null, '', `#${targetId}`);
     } else {
-      openDrawer();
+      window.location.hash = targetId;
     }
   }
 
-  function handleClose(e) {
-    if (e) {
-      e.stopPropagation();
-      if (e.cancelable && e.type === 'touchend') e.preventDefault();
-    }
+  function handleMobileNavLinkClick(e) {
+    const link = e.currentTarget;
+    const rawHref = link.getAttribute('href') || '';
+
+    // Immediately slide shut and close the mobile navigation drawer
     closeDrawer();
+
+    let targetId = '';
+    if (rawHref.startsWith('#')) {
+      targetId = rawHref.substring(1);
+    } else if (rawHref.startsWith('/#')) {
+      const isHomePage = window.location.pathname === '/' || window.location.pathname.endsWith('index.html') || window.location.pathname === '';
+      if (isHomePage) {
+        targetId = rawHref.substring(2);
+      }
+    }
+
+    if (targetId) {
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        e.preventDefault();
+        // Allow frame tick for drawer slide shut and body overflow unlock before smooth scrolling
+        requestAnimationFrame(() => {
+          setTimeout(() => {
+            scrollToSection(targetId);
+          }, 60);
+        });
+      }
+    }
+    // If link navigates to another page (e.g. /contact), default link navigation executes cleanly
   }
 
   if (mobileToggle) {
-    mobileToggle.addEventListener('click', handleToggle);
-    mobileToggle.addEventListener('touchend', handleToggle);
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = mobileDrawer && mobileDrawer.classList.contains('is-open');
+      if (isOpen) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
+    });
   }
 
   if (drawerOverlay) {
-    drawerOverlay.addEventListener('click', handleClose);
-    drawerOverlay.addEventListener('touchend', handleClose);
+    drawerOverlay.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeDrawer();
+    });
   }
 
   if (drawerClose) {
-    drawerClose.addEventListener('click', handleClose);
-    drawerClose.addEventListener('touchend', handleClose);
+    drawerClose.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeDrawer();
+    });
   }
 
   mobileNavLinks.forEach(link => {
-    link.addEventListener('click', handleClose);
-    link.addEventListener('touchend', handleClose);
+    link.addEventListener('click', handleMobileNavLinkClick);
   });
 
   // Tapping outside drawer to close
@@ -100,7 +143,6 @@ function initCJTech() {
   }, { passive: true });
 
   // 2. Header Scroll Blur & Shadow
-  const siteHeader = document.getElementById('header');
   function handleHeaderScroll() {
     if (!siteHeader) return;
     if (window.scrollY > 40) {
@@ -112,9 +154,32 @@ function initCJTech() {
   window.addEventListener('scroll', handleHeaderScroll, { passive: true });
   handleHeaderScroll();
 
-  // 3. Active Nav Link Tracking on Scroll (for single page hash anchors)
+  // 3. Desktop Nav Links Smooth Scrolling & Active Tracking
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const rawHref = link.getAttribute('href') || '';
+      let targetId = '';
+      if (rawHref.startsWith('#')) {
+        targetId = rawHref.substring(1);
+      } else if (rawHref.startsWith('/#')) {
+        const isHomePage = window.location.pathname === '/' || window.location.pathname.endsWith('index.html') || window.location.pathname === '';
+        if (isHomePage) {
+          targetId = rawHref.substring(2);
+        }
+      }
+
+      if (targetId) {
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          scrollToSection(targetId);
+        }
+      }
+    });
+  });
 
   function handleScrollSpy() {
     if (!sections.length) return;
