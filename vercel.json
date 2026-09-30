@@ -9,6 +9,10 @@
     {
       "source": "/work/velora",
       "destination": "/work/velora/index.html"
+    },
+    {
+      "source": "/work/farmfreshs",
+      "destination": "/work/farmfreshs/index.html"
     }
   ]
 }

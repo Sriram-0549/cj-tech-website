@@ -6551,3 +6551,399 @@ html, body {
     overflow: hidden;
   }
 }
+
+/* --- 14. FARM FRESHS CASE STUDY & MULTI-PROJECT PORTFOLIO ENHANCEMENTS --- */
+
+/* Emerald / Mint Text Gradient */
+.text-gradient-emerald-blue {
+  background: linear-gradient(135deg, #10B981 0%, #06B6D4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Emerald Badge Dot */
+.badge-dot-emerald {
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+}
+
+/* Farm Freshs Mockup Showcase Stage on Homepage */
+.farmfreshs-editorial-stage {
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 50px rgba(16, 185, 129, 0.12);
+}
+
+.farmfreshs-editorial-stage:hover {
+  border-color: rgba(16, 185, 129, 0.35);
+  box-shadow: 0 32px 85px rgba(0, 0, 0, 0.8), 0 0 65px rgba(16, 185, 129, 0.22);
+}
+
+/* Hotspot for View Case Study button in Farm Freshs showcase graphic */
+.farmfreshs-hotspot-case {
+  left: 60.9%;
+  top: 67.5%;
+  width: 18.5%;
+  height: 6.8%;
+  border-radius: 9999px;
+  z-index: 6;
+}
+
+.farmfreshs-hotspot-case:hover,
+.farmfreshs-hotspot-case:focus-visible {
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.85), inset 0 0 14px rgba(255, 255, 255, 0.35);
+  background: rgba(16, 185, 129, 0.15);
+  transform: scale(1.025);
+}
+
+/* Farm Freshs Case Study Hero Visual & Ambient Backlighting */
+.farmfreshs-hero-ambient-glow {
+  background: radial-gradient(
+    ellipse at 38% 50%,
+    rgba(16, 185, 129, 0.38) 0%,
+    rgba(6, 182, 212, 0.26) 42%,
+    rgba(37, 99, 255, 0.14) 68%,
+    transparent 85%
+  );
+  filter: blur(52px);
+}
+
+.farmfreshs-artwork-frame:hover {
+  border-color: rgba(16, 185, 129, 0.35);
+  box-shadow: 
+    0 32px 80px -15px rgba(0, 0, 0, 0.92),
+    0 12px 30px -6px rgba(0, 0, 0, 0.5),
+    0 0 60px -5px rgba(16, 185, 129, 0.35);
+}
+
+/* Farm Freshs Hero Live Button */
+.btn-farmfreshs-live {
+  background: linear-gradient(135deg, #059669 0%, #06B6D4 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.btn-farmfreshs-live:hover {
+  background: linear-gradient(135deg, #10B981 0%, #3B82F6 100%);
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Cross-Project Portfolio Navigation Strip */
+.cs-project-nav-strip {
+  background: #080A0F;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 3rem 0;
+  position: relative;
+  z-index: 10;
+}
+
+.cs-project-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.cs-nav-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  text-decoration: none;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  padding: 0.5rem 0;
+}
+
+.cs-nav-item:hover {
+  transform: translateY(-2px);
+}
+
+.cs-nav-direction {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--c-light-slate);
+  text-transform: uppercase;
+}
+
+.cs-nav-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+}
+
+.cs-nav-item:hover .cs-nav-title {
+  color: var(--c-cyan);
+}
+
+.cs-nav-cat {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #94A3B8;
+}
+
+.cs-nav-divider {
+  width: 1px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+
+.cs-nav-all {
+  text-align: center;
+}
+
+.cs-nav-next {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.cs-nav-prev {
+  text-align: left;
+  align-items: flex-start;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .project-header-label {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 0.65rem;
+    margin-bottom: -1.75rem !important;
+  }
+
+  .cs-project-nav-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+  }
+
+  .cs-nav-next,
+  .cs-nav-prev,
+  .cs-nav-all {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .cs-nav-divider {
+    width: 100%;
+    height: 1px;
+  }
+
+  .farmfreshs-categories-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* --- 15. INTERACTIVE LIGHTBOX & CLIENT STATUS MODAL --- */
+
+/* Screenshot Lightbox Overlay */
+.cs-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 6, 11, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
+}
+
+.cs-lightbox-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.cs-lightbox-content {
+  position: relative;
+  max-width: 1400px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: scale(0.95);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cs-lightbox-overlay.is-open .cs-lightbox-content {
+  transform: scale(1);
+}
+
+.cs-lightbox-img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.9), 0 0 50px rgba(37, 99, 255, 0.2);
+}
+
+.cs-lightbox-caption {
+  margin-top: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #CBD5E1;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.cs-lightbox-close {
+  position: absolute;
+  top: 2rem;
+  right: 2.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  color: #FFFFFF;
+  font-size: 2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  z-index: 10001;
+}
+
+.cs-lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.08);
+}
+
+/* Client Status Modal (Farm Freshs Handover) */
+.cs-status-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 7, 12, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.cs-status-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.cs-status-card {
+  background: #0E1118;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  padding: 3rem 2.5rem;
+  max-width: 540px;
+  width: 100%;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85), 0 0 50px rgba(16, 185, 129, 0.2);
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cs-status-overlay.is-open .cs-status-card {
+  transform: translateY(0);
+}
+
+.cs-status-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: transparent;
+  border: none;
+  color: #94A3B8;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: color 0.2s ease;
+}
+
+.cs-status-close:hover {
+  color: #FFFFFF;
+}
+
+.cs-status-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.75rem;
+}
+
+.cs-status-desc {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #CBD5E1;
+  margin-bottom: 1.5rem;
+}
+
+.cs-status-meta-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.75rem;
+}
+
+.status-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.88rem;
+  gap: 1rem;
+}
+
+.status-meta-row span {
+  color: #94A3B8;
+}
+
+.status-meta-row strong {
+  color: #F8FAFC;
+  font-weight: 600;
+}
+
+.cs-status-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .cs-lightbox-overlay {
+    padding: 1.25rem;
+  }
+  .cs-status-card {
+    padding: 2rem 1.5rem;
+  }
+  .status-meta-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+}
+
+

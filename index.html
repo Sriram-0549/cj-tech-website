@@ -25,6 +25,23 @@
 
   <!-- CJ Tech Creative Studio Stylesheet -->
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- JSON-LD Structured Data Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "CJ Tech",
+    "url": "https://cjtech.agency",
+    "logo": "https://cjtech.agency/cj-tech-monogram.png",
+    "description": "Creative technology studio engineering high-performance websites, web applications and automation systems.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Chennai",
+      "addressCountry": "IN"
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -554,8 +571,21 @@
           </div>
           <h2 class="section-title">Built for the<br />real world.</h2>
           <p class="section-desc">
-            Production software engineered and shipped to meet practical commercial demands.
+            Production software and verified client websites engineered and shipped to meet practical commercial demands.
           </p>
+        </div>
+
+        <!-- PROJECT 01 — VELORA -->
+        <div class="project-header-label" style="display: flex; align-items: center; justify-content: space-between; margin-top: 3.5rem; margin-bottom: -2.25rem; position: relative; z-index: 2;">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <span style="font-family: var(--font-mono); font-size: 0.85rem; font-weight: 800; color: var(--c-cyan); letter-spacing: 0.12em;">01 // PROJECT 01</span>
+            <span style="color: rgba(255,255,255,0.2);">•</span>
+            <span style="font-size: 1.15rem; font-weight: 800; color: #FFFFFF; letter-spacing: -0.01em;">VELORA</span>
+            <span style="color: #94A3B8; font-size: 0.88rem; font-weight: 500;">— Fashion &amp; Lifestyle E-Commerce</span>
+          </div>
+          <span style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.25rem 0.75rem; border-radius: 9999px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.25); font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: #38BDF8;">
+            Full-Stack Web App
+          </span>
         </div>
 
         <!-- Flagship Project: VELORA Full Showcase Presentation -->
@@ -678,6 +708,110 @@
             <h4 class="story-col-title">Live Deployment</h4>
             <p class="story-col-text">
               A fully functional, verified full-stack e-commerce system successfully deployed and operational for real-world commercial use.
+            </p>
+          </div>
+        </div>
+
+        <!-- PROJECT 02 — FARM FRESHS -->
+        <div class="project-header-label" style="display: flex; align-items: center; justify-content: space-between; margin-top: 5.5rem; margin-bottom: -2.25rem; position: relative; z-index: 2;">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <span style="font-family: var(--font-mono); font-size: 0.85rem; font-weight: 800; color: #34D399; letter-spacing: 0.12em;">02 // PROJECT 02</span>
+            <span style="color: rgba(255,255,255,0.2);">•</span>
+            <span style="font-size: 1.15rem; font-weight: 800; color: #FFFFFF; letter-spacing: -0.01em;">FARM FRESHS</span>
+            <span style="color: #94A3B8; font-size: 0.88rem; font-weight: 500;">— Organic &amp; Homemade Products</span>
+          </div>
+          <span style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.25rem 0.75rem; border-radius: 9999px; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.35); font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: #34D399;">
+            Real Client Delivery
+          </span>
+        </div>
+
+        <article class="velora-editorial-stage velora-stage-full farmfreshs-editorial-stage" style="margin-top: 3.5rem;">
+          <div class="velora-mockup-wrapper">
+            <img 
+              src="/images/farmfreshs-case-study/farmfreshs-mockup-showcase.png" 
+              alt="Farm Freshs — Organic &amp; Homemade Products E-Commerce Storefront" 
+              width="1672" 
+              height="941" 
+              loading="lazy"
+              class="velora-mockup-full-img"
+            />
+
+            <!-- Interactive Hotspot Links mapped directly over Farm Freshs showcase elements -->
+            <!-- 1. Left Device Showcase (Laptop & Mobile) -> Opens Farm Freshs Case Study -->
+            <a 
+              href="/work/farmfreshs" 
+              class="velora-hotspot velora-hotspot-mockup" 
+              aria-label="Explore Farm Freshs Case Study"
+              title="Explore Farm Freshs Case Study"
+            ></a>
+
+            <!-- 2. View Case Study Button Hotspot -->
+            <a 
+              href="/work/farmfreshs" 
+              class="velora-hotspot farmfreshs-hotspot-case" 
+              aria-label="View Farm Freshs Case Study"
+              title="View Farm Freshs Case Study"
+            ></a>
+          </div>
+
+          <!-- Bottom Action Bar: Accessible, prominent conversion actions -->
+          <div class="velora-full-action-bar">
+            <div class="velora-bar-meta">
+              <span class="badge-dot" style="background: #10B981; box-shadow: 0 0 10px rgba(16, 185, 129, 0.8);"></span>
+              <span class="velora-bar-label">CLIENT DELIVERY // FARM FRESHS PRODUCTION STOREFRONT</span>
+            </div>
+            <div class="velora-bar-buttons">
+              <a href="/contact" class="btn btn-electric" id="farmfreshs-start-project-btn">
+                <span>Start a Project</span>
+                <span>→</span>
+              </a>
+              <a href="/work/farmfreshs" class="btn btn-glass" id="farmfreshs-view-case-btn">
+                <span>View Case Study</span>
+                <span>→</span>
+              </a>
+              <a href="/work/farmfreshs#explore-product" class="btn btn-glass" id="farmfreshs-explore-btn">
+                <span>Explore Storefront</span>
+                <span>↓</span>
+              </a>
+              <span class="client-delivered-tag" style="display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.5rem 1rem; border-radius: 9999px; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.35); font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; color: #34D399;">
+                <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #34D399; box-shadow: 0 0 6px #34D399;"></span>
+                Client Handed Over
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Farm Freshs Factual Story Grid -->
+        <div class="story-grid-4col" style="margin-top: 1.75rem;">
+          <div class="story-col-card">
+            <div class="story-col-label" style="color: #34D399;">01 // CLIENT BRIEF</div>
+            <h4 class="story-col-title">Home-Based Brand</h4>
+            <p class="story-col-text">
+              A home-based organic food and personal-care business in Tamil Nadu with 26 natural products needed its first digital storefront to present its catalog professionally.
+            </p>
+          </div>
+
+          <div class="story-col-card">
+            <div class="story-col-label" style="color: #34D399;">02 // WHAT WE BUILT</div>
+            <h4 class="story-col-title">Complete Storefront</h4>
+            <p class="story-col-text">
+              CJ Tech designed and developed a mobile-optimized e-commerce storefront with multi-category browsing, persistent shopping bag, and automated WhatsApp order routing.
+            </p>
+          </div>
+
+          <div class="story-col-card">
+            <div class="story-col-label" style="color: #34D399;">03 // TECHNOLOGY</div>
+            <h4 class="story-col-title">Production Stack</h4>
+            <p class="story-col-text">
+              Engineered with React, Vite, Supabase database, modern ES modules, and custom CSS optimized for fast loading on smartphones and mobile networks.
+            </p>
+          </div>
+
+          <div class="story-col-card">
+            <div class="story-col-label" style="color: #34D399;">04 // DELIVERY</div>
+            <h4 class="story-col-title">Client Handover</h4>
+            <p class="story-col-text">
+              The project was fully completed, verified against the client's catalog requirements, and handed over to the business owner for commercial operations.
             </p>
           </div>
         </div>

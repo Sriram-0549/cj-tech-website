@@ -280,6 +280,20 @@ function initCJTech() {
         'Administrative merchant portal with order fulfillment status pipelines and real-time inventory triggers.',
         'Relational schema on Supabase with Row Level Security (RLS) guaranteeing strict customer data integrity.'
       ]
+    },
+    farmfreshs: {
+      title: 'FARM FRESHS — CLIENT STOREFRONT',
+      statusText: 'CLIENT DELIVERED // PRODUCTION',
+      type: 'ORGANIC & HOMEMADE E-COMMERCE',
+      description: 'A complete e-commerce storefront designed and developed for a home-based organic products brand, featuring a curated 26-product catalog, structured multi-category discovery, persistent shopping cart, and seamless WhatsApp ordering.',
+      techStack: ['React', 'Vite', 'Supabase', 'JavaScript (ESM)', 'Custom CSS'],
+      highlights: [
+        'Curated 26-product catalog across 5 structured categories (Soaps, Hair Care, Health Mixes, Pongal Mixes, Podi).',
+        'Direct WhatsApp ordering pipeline designed around local customer purchasing preferences.',
+        'Persistent client shopping bag synchronization with real-time subtotal calculation.',
+        'Transparent product specifications highlighting ingredients, net weights, pack options, and usage instructions.',
+        'Completed, verified against client catalog requirements, and handed over for live commercial operations.'
+      ]
     }
   };
 
@@ -367,6 +381,168 @@ function initCJTech() {
       closeProjectModal();
     }
   });
+
+  // 6b. Case Study Screenshot Lightbox Zoom
+  function initCaseStudyLightbox() {
+    const galleryCards = document.querySelectorAll('.cs-editorial-card .cs-editorial-img-wrap img, .cs-hero-artwork-frame img');
+    if (!galleryCards.length) return;
+
+    let lightbox = document.getElementById('cs-lightbox');
+    if (!lightbox) {
+      lightbox = document.createElement('div');
+      lightbox.id = 'cs-lightbox';
+      lightbox.className = 'cs-lightbox-overlay';
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightbox.innerHTML = `
+        <button class="cs-lightbox-close" id="cs-lightbox-close" aria-label="Close image preview">&times;</button>
+        <div class="cs-lightbox-content">
+          <img class="cs-lightbox-img" id="cs-lightbox-img" src="" alt="Screenshot Preview" />
+          <div class="cs-lightbox-caption" id="cs-lightbox-caption"></div>
+        </div>
+      `;
+      document.body.appendChild(lightbox);
+    }
+
+    const lightboxImg = document.getElementById('cs-lightbox-img');
+    const lightboxCaption = document.getElementById('cs-lightbox-caption');
+    const closeBtn = document.getElementById('cs-lightbox-close');
+
+    function openLightbox(src, alt) {
+      if (!lightbox || !lightboxImg) return;
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || 'Storefront Screenshot';
+      if (lightboxCaption) {
+        lightboxCaption.textContent = alt || '';
+      }
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      if (!lightbox) return;
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lightboxImg) lightboxImg.src = '';
+    }
+
+    galleryCards.forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openLightbox(img.src, img.alt);
+      });
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeLightbox();
+      });
+    }
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target.classList.contains('cs-lightbox-content')) {
+        closeLightbox();
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
+        closeLightbox();
+      }
+    });
+  }
+
+  initCaseStudyLightbox();
+
+  // 6c. Client Handover Status Modal (for Farm Freshs Live CTA)
+  function initClientStatusModal() {
+    const triggerBtns = document.querySelectorAll('.btn-farmfreshs-live');
+    if (!triggerBtns.length) return;
+
+    let modal = document.getElementById('cs-status-modal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'cs-status-modal';
+      modal.className = 'cs-status-overlay';
+      modal.setAttribute('aria-hidden', 'true');
+      modal.innerHTML = `
+        <div class="cs-status-card" role="dialog" aria-modal="true">
+          <button class="cs-status-close" id="cs-status-close" aria-label="Close dialog">&times;</button>
+          <div class="cs-meta-badge" style="margin-bottom: 1rem;">
+            <span class="cs-badge-dot badge-dot-emerald"></span>
+            <span class="cs-badge-text">CLIENT DELIVERY VERIFIED</span>
+          </div>
+          <h3 class="cs-status-title">Farm Freshs Storefront</h3>
+          <p class="cs-status-desc">
+            This e-commerce storefront was designed, developed, and handed over directly to the client. Live DNS routing is active under the client's custom domain.
+          </p>
+          <div class="cs-status-meta-box">
+            <div class="status-meta-row"><span>Scope:</span> <strong>26 Products across 5 Categories</strong></div>
+            <div class="status-meta-row"><span>Features:</span> <strong>Cart Persistence &amp; WhatsApp Order Routing</strong></div>
+            <div class="status-meta-row"><span>Status:</span> <strong style="color: #34D399;">Handover Completed &amp; Commercial</strong></div>
+          </div>
+          <div class="cs-status-actions">
+            <a href="https://wa.me/919361628990?text=Hey%20CJ%20Tech%2C%20I%20checked%20out%20the%20Farm%20Freshs%20case%20study%20and%20I%27d%20like%20to%20see%20a%20live%20walkthrough%20or%20build%20a%20similar%20storefront." target="_blank" rel="noopener noreferrer" class="btn btn-electric" style="width:100%; justify-content:center;">
+              <span>Request Live Walkthrough on WhatsApp →</span>
+            </a>
+            <a href="/contact" class="btn btn-glass" style="width:100%; justify-content:center;">
+              <span>Start Your E-Commerce Project →</span>
+            </a>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(modal);
+    }
+
+    const closeBtn = document.getElementById('cs-status-close');
+
+    function openModal() {
+      if (window.FARM_FRESHS_CONFIG && window.FARM_FRESHS_CONFIG.liveUrl) {
+        window.open(window.FARM_FRESHS_CONFIG.liveUrl, '_blank', 'noopener,noreferrer');
+        return;
+      }
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    triggerBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+      });
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeModal();
+      });
+    }
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+        closeModal();
+      }
+    });
+  }
+
+  initClientStatusModal();
 
   // 7. Scroll Reveal Animation for Section Cards
   if ('IntersectionObserver' in window && !prefersReducedMotion) {

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    width: 1672px;
+    height: 941px;
+    background: #080a0c;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 80px;
+  }
+
+  /* Ambient organic emerald & teal lighting */
+  .glow-1 {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    left: -100px;
+    top: -100px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, rgba(5, 150, 105, 0.05) 50%, transparent 70%);
+    pointer-events: none;
+  }
+  .glow-2 {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    left: 200px;
+    bottom: -150px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.12) 0%, rgba(16, 185, 129, 0.04) 50%, transparent 70%);
+    pointer-events: none;
+  }
+  .glow-3 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    right: 50px;
+    top: 50px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Subtle background grid pattern */
+  .grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  /* Left Showcase Stage */
+  .showcase-stage {
+    position: relative;
+    width: 860px;
+    height: 820px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Laptop Frame */
+  .laptop-outer {
+    position: absolute;
+    left: 0;
+    top: 140px;
+    width: 720px;
+    height: 480px;
+    background: #18191d;
+    border-radius: 18px 18px 0 0;
+    padding: 14px 14px 0 14px;
+    box-shadow: 
+      0 30px 80px rgba(0, 0, 0, 0.8),
+      0 0 50px rgba(16, 185, 129, 0.15),
+      inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: none;
+  }
+  .laptop-camera {
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 5px;
+    background: #0d0e11;
+    border-radius: 50%;
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+  }
+  .laptop-screen {
+    width: 100%;
+    height: 100%;
+    background: #0b0c10;
+    border-radius: 6px 6px 0 0;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .laptop-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+  .laptop-base {
+    position: absolute;
+    left: -40px;
+    top: 620px;
+    width: 800px;
+    height: 18px;
+    background: linear-gradient(180deg, #2a2c33 0%, #17181c 100%);
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .laptop-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 5px;
+    background: #111215;
+    border-radius: 0 0 5px 5px;
+  }
+
+  /* Mobile Device */
+  .mobile-outer {
+    position: absolute;
+    right: 30px;
+    bottom: 120px;
+    width: 220px;
+    height: 450px;
+    background: #18191d;
+    border-radius: 36px;
+    padding: 10px;
+    box-shadow: 
+      0 25px 60px rgba(0, 0, 0, 0.9),
+      0 0 35px rgba(16, 185, 129, 0.25),
+      inset 0 1px 2px rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.14);
+    z-index: 10;
+  }
+  .mobile-screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 28px;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+  }
+  .mobile-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+  .mobile-notch {
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 14px;
+    background: #18191d;
+    border-radius: 8px;
+    z-index: 20;
+  }
+
+  /* Floating Glass Badges */
+  .glass-card-1 {
+    position: absolute;
+    top: 40px;
+    left: 450px;
+    background: rgba(18, 22, 28, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 14px;
+    padding: 16px 20px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 25px rgba(16, 185, 129, 0.15);
+    z-index: 12;
+  }
+  .glass-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #e2e8f0;
+    margin-bottom: 8px;
+  }
+  .glass-item:last-child {
+    margin-bottom: 0;
+  }
+  .glass-item-icon {
+    font-size: 15px;
+  }
+
+  .glass-card-2 {
+    position: absolute;
+    bottom: 80px;
+    left: -20px;
+    background: rgba(18, 22, 28, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    border-radius: 14px;
+    padding: 16px 22px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 30px rgba(16, 185, 129, 0.2);
+    z-index: 12;
+    max-width: 250px;
+  }
+  .card-pill-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #34d399;
+    margin-bottom: 4px;
+  }
+  .card-pill-desc {
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.4;
+  }
+
+  .annotation-tag {
+    position: absolute;
+    top: 60px;
+    left: 40px;
+    font-size: 14px;
+    font-style: italic;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* Right Project Information */
+  .project-info {
+    width: 600px;
+    padding-left: 20px;
+    z-index: 5;
+  }
+  .meta-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #34d399;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .meta-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #10b981;
+  }
+  .project-title {
+    font-size: 64px;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: #ffffff;
+    margin-bottom: 12px;
+  }
+  .project-sub {
+    font-size: 24px;
+    font-weight: 600;
+    color: #cbd5e1;
+    margin-bottom: 24px;
+  }
+  .project-desc {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #94a3b8;
+    margin-bottom: 32px;
+    max-width: 540px;
+  }
+
+  .tech-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .tech-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 36px;
+  }
+  .tech-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #e2e8f0;
+  }
+  .tech-pill-dot {
+    width: 6px;
+    height: 6px;
+    background: #34d399;
+    border-radius: 50%;
+  }
+
+  /* Action Buttons */
+  .action-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .btn-primary-preview {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 14px 26px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.35);
+  }
+  .btn-secondary-preview {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #e2e8f0;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 14px 22px;
+    border-radius: 10px;
+  }
+
+  /* Bottom Metadata Footnotes */
+  .footer-meta {
+    display: flex;
+    gap: 36px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 20px;
+  }
+  .footer-meta-col {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .footer-meta-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #64748b;
+    text-transform: uppercase;
+  }
+  .footer-meta-val {
+    font-size: 13px;
+    font-weight: 500;
+    color: #94a3b8;
+  }
+</style>
+</head>
+<body>
+  <div class="glow-1"></div>
+  <div class="glow-2"></div>
+  <div class="glow-3"></div>
+  <div class="grid-bg"></div>
+
+  <!-- Left Showcase Stage -->
+  <div class="showcase-stage">
+    <div class="annotation-tag">
+      <span>Real Client Storefront</span>
+      <span>?</span>
+    </div>
+
+    <!-- Laptop Frame -->
+    <div class="laptop-outer">
+      <div class="laptop-camera"></div>
+      <div class="laptop-screen">
+        <img src="public/images/farmfreshs-case-study/homepage.png" alt="Farm Freshs Storefront">
+      </div>
+      <div class="laptop-base">
+        <div class="laptop-notch"></div>
+      </div>
+    </div>
+
+    <!-- Mobile Device -->
+    <div class="mobile-outer">
+      <div class="mobile-notch"></div>
+      <div class="mobile-screen">
+        <img src="public/images/farmfreshs-case-study/mobile.png" alt="Farm Freshs Mobile Storefront">
+      </div>
+    </div>
+
+    <!-- Feature Card 1 -->
+    <div class="glass-card-1">
+      <div class="glass-item">
+        <span class="glass-item-icon">??</span>
+        <span>26 Organic Products</span>
+      </div>
+      <div class="glass-item">
+        <span class="glass-item-icon">??</span>
+        <span>5 Core Categories</span>
+      </div>
+      <div class="glass-item">
+        <span class="glass-item-icon">??</span>
+        <span>Persistent Cart Sync</span>
+      </div>
+      <div class="glass-item">
+        <span class="glass-item-icon">??</span>
+        <span>WhatsApp Order Flow</span>
+      </div>
+    </div>
+
+    <!-- Feature Card 2 -->
+    <div class="glass-card-2">
+      <div class="card-pill-head">
+        <span>?</span>
+        <span>Direct-To-Consumer</span>
+      </div>
+      <div class="card-pill-desc">
+        Engineered specifically for home batch ordering and mobile-first Tamil Nadu customer base.
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Project Info -->
+  <div class="project-info">
+    <div class="meta-tag">
+      <span class="meta-dot"></span>
+      <span>02 / SELECTED WORK</span>
+    </div>
+
+    <h1 class="project-title">FARM FRESHS</h1>
+    <h2 class="project-sub">Organic &amp; Homemade Products</h2>
+
+    <p class="project-desc">
+      A complete e-commerce storefront designed and developed for a home-based organic products brand, featuring a curated 26-product catalog, structured multi-category discovery, persistent shopping cart, and seamless WhatsApp ordering.
+    </p>
+
+    <div class="tech-label">TECHNOLOGY</div>
+    <div class="tech-pills">
+      <div class="tech-pill"><span class="tech-pill-dot"></span> React</div>
+      <div class="tech-pill"><span class="tech-pill-dot"></span> Vite</div>
+      <div class="tech-pill"><span class="tech-pill-dot"></span> Supabase</div>
+      <div class="tech-pill"><span class="tech-pill-dot"></span> JavaScript (ESM)</div>
+      <div class="tech-pill"><span class="tech-pill-dot"></span> Custom CSS</div>
+    </div>
+
+    <div class="action-row">
+      <div class="btn-primary-preview">
+        <span>VIEW CASE STUDY</span>
+        <span>?</span>
+      </div>
+      <div class="btn-secondary-preview">
+        <span>CLIENT DELIVERED</span>
+        <span>?</span>
+      </div>
+    </div>
+
+    <div class="footer-meta">
+      <div class="footer-meta-col">
+        <span class="footer-meta-label">DELIVERY STATUS</span>
+        <span class="footer-meta-val">Completed &amp; Handed Over</span>
+      </div>
+      <div class="footer-meta-col">
+        <span class="footer-meta-label">SCOPE</span>
+        <span class="footer-meta-val">Full Brand &amp; Digital Storefront</span>
+      </div>
+      <div class="footer-meta-col">
+        <span class="footer-meta-label">CATALOG</span>
+        <span class="footer-meta-val">26 Products across 5 Categories</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

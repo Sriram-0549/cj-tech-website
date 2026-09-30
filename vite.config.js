@@ -66,6 +66,10 @@ function contactApiPlugin(env) {
           req.url = '/work/velora/index.html';
           return next();
         }
+        if (url === '/work/farmfreshs' || url === '/work/farmfreshs/') {
+          req.url = '/work/farmfreshs/index.html';
+          return next();
+        }
 
         // Handle POST /api/contact
         if (url === '/api/contact' && req.method === 'POST') {
@@ -245,7 +249,8 @@ export default defineConfig(({ mode }) => {
         input: {
           main: resolve(__dirname, 'index.html'),
           contact: resolve(__dirname, 'contact.html'),
-          velora: resolve(__dirname, 'work/velora/index.html')
+          velora: resolve(__dirname, 'work/velora/index.html'),
+          farmfreshs: resolve(__dirname, 'work/farmfreshs/index.html')
         }
       }
     }
